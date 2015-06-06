@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class BibliotecaFuncationalitiesTest {
     }
 
     @Test
-    public void checkIfBookListIsreturnedasExpected() {
+    public void checkIfBookListIsDisplayedAsExpected() {
         BibliotecaFuncationalities testBookList = new BibliotecaFuncationalities();
         testBookList.displayBookList();
 
@@ -36,5 +37,9 @@ public class BibliotecaFuncationalitiesTest {
         assertEquals(outputStream.toString(), expectedBookList);
     }
 
+    @After
+    public void tearDown() throws Exception {
+        System.setOut(null);
+    }
 
 }

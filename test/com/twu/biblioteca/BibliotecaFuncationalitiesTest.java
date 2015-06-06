@@ -4,14 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
 public class BibliotecaFuncationalitiesTest {
 
-    private  ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
     @Before
     public void stUp() throws Exception {
@@ -25,6 +24,8 @@ public class BibliotecaFuncationalitiesTest {
 
         assertEquals(outputStream.toString(), "Welcome" + System.lineSeparator());
     }
+
+
 
 
 }

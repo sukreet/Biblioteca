@@ -16,6 +16,5 @@ public class BibliotecaFunctionalities {
 
     public void invalidChoice() {
         System.out.println("Select a valid option!");
-
     }
 }

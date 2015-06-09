@@ -10,6 +10,7 @@ public class Menu {
 
     public Menu() {
         map.put(1, new Books());
+        map.put(2, new Quit());
         menuList.add("1 : List Of Books");
         menuList.add("2 : Quit");
     }
@@ -26,7 +27,7 @@ public class Menu {
 
     public String computeMenuOption(int optionNumber) {
         if (optionNumber > menuList.size() || optionNumber <= 0)
-            return "Invalid Menu Option";
+            return "Select a valid option!";
         Object object;
         object = map.get(optionNumber);
         return object.toString();

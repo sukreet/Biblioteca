@@ -33,7 +33,7 @@ public class MenuTest {
 
         String actualMessage = menu.computeMenuOption(4);
 
-        assertThat(actualMessage, is("Invalid Menu Option"));
+        assertThat(actualMessage, is("Select a valid option!"));
     }
 
 

@@ -14,4 +14,8 @@ public class BibliotecaFunctionalities {
         System.out.println("1. List books");
     }
 
+    public void invalidChoice() {
+        System.out.println("Select a valid option!");
+
+    }
 }

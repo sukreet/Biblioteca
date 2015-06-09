@@ -37,6 +37,14 @@ public class BibliotecaFunctionalitiesTest {
         assertEquals(outputStream.toString(), expectedMenuFormat);
     }
 
+    @Test
+    public void checkIfInvalidMenuOptionIsAsPerRequirement() {
+        BibliotecaFunctionalities testInvalidChoice = new BibliotecaFunctionalities();
+        testInvalidChoice.invalidChoice();
+
+        assertEquals(outputStream.toString(), "Select a valid option!" + System.lineSeparator());
+    }
+
 
     @After
     public void tearDown() throws Exception {

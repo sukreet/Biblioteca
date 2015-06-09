@@ -24,7 +24,7 @@ public class Menu {
 
 
     public String computeMenuOption(int optionNumber) {
-        if (optionNumber > menuList.size())
+        if (optionNumber > menuList.size() || optionNumber<=0)
             return "Invalid Menu Option";
         Object object;
         object = map.get(optionNumber);

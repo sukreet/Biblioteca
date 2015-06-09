@@ -32,7 +32,8 @@ public class BibliotecaFunctionalitiesTest {
         BibliotecaFunctionalities testMainMenu = new BibliotecaFunctionalities();
         testMainMenu.displayMenu();
 
-        String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1. List books" + System.lineSeparator();
+        String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1. List books" + System.lineSeparator()
+                + "2. Quit" + System.lineSeparator();
 
         assertEquals(outputStream.toString(), expectedMenuFormat);
     }

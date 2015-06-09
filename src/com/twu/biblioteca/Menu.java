@@ -11,20 +11,21 @@ public class Menu {
     public Menu() {
         map.put(1, new Books());
         menuList.add("1 : List Of Books");
+        menuList.add("2 : Quit");
     }
 
 
     public String displayMenuOptions() {
         String displayMenu = "";
-        for (int i = 0; i < menuList.size(); i++)
-            displayMenu = displayMenu + menuList.get(0);
-
+        for (int i = 0; i < menuList.size(); i++) {
+            displayMenu = displayMenu + menuList.get(i) + System.lineSeparator();
+        }
         return displayMenu;
     }
 
 
     public String computeMenuOption(int optionNumber) {
-        if (optionNumber > menuList.size() || optionNumber<=0)
+        if (optionNumber > menuList.size() || optionNumber <= 0)
             return "Invalid Menu Option";
         Object object;
         object = map.get(optionNumber);

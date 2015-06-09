@@ -11,7 +11,9 @@ public class BibliotecaFunctionalities {
     public void displayMenu() {
 
         System.out.println("Main Menu");
-        System.out.println("");
+        Menu menu = new Menu();
+        menu.displayMenuOptions();
+
     }
 
     public void invalidChoice() {

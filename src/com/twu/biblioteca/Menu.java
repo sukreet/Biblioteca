@@ -6,10 +6,19 @@ import java.util.HashMap;
 
 public class Menu {
     HashMap<Integer, MenuOperations> map = new HashMap<Integer, MenuOperations>();
-    ArrayList<String> menuOptions = new ArrayList<String>();
+    ArrayList<String> menuList = new ArrayList<String>();
 
     public Menu() {
         map.put(1, new Books());
+        menuList.add("1 : List Of Books");
+    }
+
+
+    public String displayMenuOptions() {
+        String displayMenu = "";
+            displayMenu = displayMenu + menuList.get(0);
+
+        return displayMenu;
     }
 
 

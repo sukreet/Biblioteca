@@ -17,4 +17,13 @@ public class MenuTest {
 
         assertThat(actualOutput, is(expectedOutput));
     }
+
+    @Test
+    public void shouldDisplayMenuOptiions(){
+        Menu menu = new Menu();
+
+        String actualOutput = menu.displayMenuOptions();
+
+        assertThat(actualOutput, is("1 : List Of Books"));
+    }
 }

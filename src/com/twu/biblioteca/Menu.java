@@ -16,6 +16,7 @@ public class Menu {
 
     public String displayMenuOptions() {
         String displayMenu = "";
+        for (int i = 0; i < menuList.size(); i++)
             displayMenu = displayMenu + menuList.get(0);
 
         return displayMenu;
@@ -23,6 +24,8 @@ public class Menu {
 
 
     public String computeMenuOption(int optionNumber) {
+        if (optionNumber > menuList.size())
+            return "Invalid Menu Option";
         Object object;
         object = map.get(optionNumber);
         return object.toString();

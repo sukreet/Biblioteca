@@ -19,11 +19,22 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldDisplayMenuOptiions(){
+    public void shouldDisplayMenuOptiions() {
         Menu menu = new Menu();
 
         String actualOutput = menu.displayMenuOptions();
 
         assertThat(actualOutput, is("1 : List Of Books"));
     }
+
+    @Test
+    public void shouldDisplayInvalidMenuOptionWhenIncorrectMenuOptionIsPassed() {
+        Menu menu = new Menu();
+
+        String actualMessage = menu.computeMenuOption(4);
+
+        assertThat(actualMessage, is("Invalid Menu Option"));
+    }
+
+
 }

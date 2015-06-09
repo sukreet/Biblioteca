@@ -36,5 +36,4 @@ public class MenuTest {
         assertThat(actualMessage, is("Select a valid option!"));
     }
 
-
 }

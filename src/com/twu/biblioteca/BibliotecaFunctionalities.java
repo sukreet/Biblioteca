@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-
 public class BibliotecaFunctionalities {
 
     public void displayWelcomeMsg() {
@@ -11,10 +10,5 @@ public class BibliotecaFunctionalities {
     public void displayMenu(Menu menu) {
         System.out.println("Main Menu");
         System.out.print(menu.displayMenuOptions());
-
-    }
-
-    public void invalidChoice() {
-        System.out.println("!");
     }
 }

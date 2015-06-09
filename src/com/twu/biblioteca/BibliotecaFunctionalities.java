@@ -8,11 +8,9 @@ public class BibliotecaFunctionalities {
         System.out.println("Welcome");
     }
 
-    public void displayMenu() {
-
+    public void displayMenu(Menu menu) {
         System.out.println("Main Menu");
-        Menu menu = new Menu();
-        menu.displayMenuOptions();
+        System.out.print(menu.displayMenuOptions());
 
     }
 

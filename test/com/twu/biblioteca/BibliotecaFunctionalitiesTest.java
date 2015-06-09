@@ -30,12 +30,14 @@ public class BibliotecaFunctionalitiesTest {
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
         BibliotecaFunctionalities testMainMenu = new BibliotecaFunctionalities();
-        testMainMenu.displayMenu();
+        Menu menu = new Menu();
+        testMainMenu.displayMenu(menu);
 
-        String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1. List books" + System.lineSeparator()
-                + "2. Quit" + System.lineSeparator();
 
-        assertEquals(outputStream.toString(), expectedMenuFormat);
+        String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1 : List Of Books" + System.lineSeparator()
+                + "2 : Quit" + System.lineSeparator();
+
+        assertEquals(expectedMenuFormat, outputStream.toString());
     }
 
     @Test

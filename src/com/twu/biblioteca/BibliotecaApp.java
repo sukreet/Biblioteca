@@ -12,8 +12,6 @@ public class BibliotecaApp {
 
         ArrayList<Book> books;
         FileHandler readBooks = new FileHandler("listOfBooks.txt");
-//        books.add(new Book("Head First Java", "Kathy", 1995));
-//        books.add(new Book("Learning C", "John", 2000));
         books = readBooks.readListOfBooks();
 
         BibliotecaFunctionalities bibliotecaFunctionalities = new BibliotecaFunctionalities();

@@ -8,8 +8,8 @@ public class Menu {
     HashMap<Integer, MenuOperations> map = new HashMap<Integer, MenuOperations>();
     ArrayList<String> menuList = new ArrayList<String>();
 
-    public Menu() {
-        map.put(1, new Books());
+    public Menu(ArrayList<Book> books) {
+        map.put(1, new Books(books));
         map.put(2, new Quit());
         menuList.add("1 : List Of Books");
         menuList.add("2 : Quit");

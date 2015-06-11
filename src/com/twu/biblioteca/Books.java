@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class Books implements MenuOperations {
     private ArrayList<Book> books = new ArrayList<>();
 
-    public Books() {
-
-        books.add(new Book("Head First Java", "Kathy", 1995));
-        books.add(new Book("Learning C", "John", 2000));
+    public Books(ArrayList<Book> books) {
+        this.books = books;
     }
 
     @Override

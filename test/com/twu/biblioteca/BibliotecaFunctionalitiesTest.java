@@ -11,6 +11,7 @@ import static org.mockito.Mockito.verify;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 
 public class BibliotecaFunctionalitiesTest {
@@ -33,7 +34,11 @@ public class BibliotecaFunctionalitiesTest {
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
         BibliotecaFunctionalities testMainMenu = new BibliotecaFunctionalities();
-        Menu menu = new Menu();
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book("Head First Java", "Kathy", 1995));
+        books.add(new Book("Learning C", "John", 2000));
+
+        Menu menu = new Menu(books);
         testMainMenu.displayMenu(menu);
 
 

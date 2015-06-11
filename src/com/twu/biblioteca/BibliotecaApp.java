@@ -23,7 +23,7 @@ public class BibliotecaApp {
             result = menu.computeMenuOption(input);
 
             System.out.println(result);
-        } while (result != null);
+        } while (result != " ");
 
     }
 }

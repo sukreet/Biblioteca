@@ -11,7 +11,7 @@ public class QuitTest {
 
         String result = quit.toString();
 
-        assertEquals(null, result);
+        assertEquals(" ", result);
 
     }
 }

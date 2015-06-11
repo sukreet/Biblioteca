@@ -18,4 +18,20 @@ public class Books implements MenuOperations {
             list += book.toString() + System.lineSeparator();
         return list;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Books books1 = (Books) o;
+
+        return !(books != null ? !books.equals(books1.books) : books1.books != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return books != null ? books.hashCode() : 0;
+    }
 }

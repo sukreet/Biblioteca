@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-public interface MenuOperations  {
+public interface MenuOperations {
 
     @Override
-    public  String toString();
+    public String toString();
 }

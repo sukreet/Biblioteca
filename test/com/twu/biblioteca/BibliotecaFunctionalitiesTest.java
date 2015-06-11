@@ -5,7 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -39,6 +42,20 @@ public class BibliotecaFunctionalitiesTest {
 
         assertEquals(expectedMenuFormat, outputStream.toString());
     }
+//
+//    @Test
+//    public void shouldNotContinueLoopIfTheUserSelectsQuit() {
+//       ByteArrayInputStream inputStream = new ByteArrayInputStream("2".getBytes());
+//        System.setIn(inputStream);
+//        Menu menuStub = mock(Menu.class);
+//       Menu menu = mock(Menu.class);
+//
+//
+//        BibliotecaFunctionalities bibliotecaFunctionalities = new BibliotecaFunctionalities();
+//        bibliotecaFunctionalities.start(menuStub);
+//
+//        verify(menuStub).computeMenuOption(2);
+//    }
 
 
     @After

@@ -42,7 +42,7 @@ public class MenuTest {
         books.add(new Book("Learning C", "John", 2000));
         Menu menu = new Menu(books);
 
-        String actualMessage = menu.computeMenuOption(4);
+        String actualMessage = menu.computeMenuOption(8);
 
         assertThat(actualMessage, is("Select a valid option!"));
     }

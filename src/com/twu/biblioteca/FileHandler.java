@@ -17,7 +17,7 @@ public class FileHandler {
         ArrayList<Book> listOfBooks = new ArrayList<>();
         String name, author, year;
         int yearOfPublication;
-       // boolean checkout;
+        int isAvailable = 1;
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             StringBuilder sb = new StringBuilder();
@@ -32,14 +32,14 @@ public class FileHandler {
                 year = year.trim();
                 yearOfPublication = Integer.parseInt(year);
 
-               // checkout = Boolean.parseBoolean(line.substring(90, 98));
-                listOfBooks.add(new Book(name, author, yearOfPublication));
-
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = br.readLine();
+                if (Integer.parseInt(line.substring(90, 91)) == isAvailable) {
+                    listOfBooks.add(new Book(name, author, yearOfPublication));
+                }
+                    sb.append(line);
+                    sb.append(System.lineSeparator());
+                    line = br.readLine();
+                }
             }
+            return listOfBooks;
         }
-        return listOfBooks;
     }
-}

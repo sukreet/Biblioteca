@@ -82,13 +82,20 @@ public class BookTest {
     public void shouldBeAbleToCheckIfbookIsAvailableOrnot(){
         Book book = new Book("book1", "author", 1992);
 
-        assertTrue(book.checkBookAvailability());
+        assertTrue(book.checkAvailability());
     }
 
     @Test
     public void shouldBeAbleToMakeBookUnAailable() {
         Book book = new Book("book1", "author", 1992);
         book.issueBook();
-        assertFalse(book.checkBookAvailability());
+        assertFalse(book.checkAvailability());
+    }
+
+    @Test
+    public void shouldBeAbleToVerifyBookName() {
+        Book book = new Book("book1", "author", 1992);
+
+        assertTrue(book.checkNameIs("book1"));
     }
 }

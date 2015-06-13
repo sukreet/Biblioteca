@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class BooksTest {
 
@@ -104,4 +103,24 @@ public class BooksTest {
         assertEquals(firstBooks.hashCode(), secondBooks.hashCode());
     }
 
+
+    @Test
+    public void shouldCheckIfABookDoesNotExistInAListOfBooks() {
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+
+        assertFalse(books.checkExistence("book1"));
+    }
+
+    @Test
+    public void shouldCheckIfABookExistInAListOfBooks() {
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+
+        assertTrue(books.checkExistence("Head First Java"));
+    }
 }

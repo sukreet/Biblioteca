@@ -39,12 +39,15 @@ public class Book {
         return result;
     }
 
-    public boolean checkBookAvailability() {
+    public boolean checkAvailability() {
         return this.isAvailable;
     }
 
     public void issueBook() {
-        this.isAvailable = false ;
+        this.isAvailable = false;
+    }
 
+    public boolean checkNameIs(String name) {
+        return name.equals(this.name);
     }
 }

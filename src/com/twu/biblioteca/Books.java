@@ -32,4 +32,15 @@ public class Books implements MenuOperations {
     public int hashCode() {
         return books != null ? books.hashCode() : 0;
     }
+
+
+    public boolean checkExistence(String name) {
+        for (Book book : books) {
+            if (book.checkNameIs(name))
+                return true;
+        }
+        return false;
+    }
+
+
 }

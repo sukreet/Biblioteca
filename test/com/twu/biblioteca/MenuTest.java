@@ -14,7 +14,7 @@ public class MenuTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
-        Menu menu = new Menu(books);
+        Menu menu = new Menu(new Books(books));
 
         String actualOutput = menu.computeMenuOption(1);
         String expectedOutput = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator()
@@ -28,7 +28,7 @@ public class MenuTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
-        Menu menu = new Menu(books);
+        Menu menu = new Menu(new Books(books));
 
         String actualOutput = menu.displayMenuOptions();
 
@@ -40,7 +40,7 @@ public class MenuTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
-        Menu menu = new Menu(books);
+        Menu menu = new Menu(new Books(books));
 
         String actualMessage = menu.computeMenuOption(8);
 

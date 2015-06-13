@@ -2,14 +2,19 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 
-public class BibliotecaFunctionalities {
+public class App {
 
     private int input;
     private String result;
     private String exitToken = " ";
+    private Menu menu;
+
+    public App(Menu menu) {
+        this.menu = menu;
+    }
 
 
-    public void displayWelcomeMsg() {
+    public void displayWelcomeMessage() {
 
         System.out.println("Welcome");
     }
@@ -19,8 +24,9 @@ public class BibliotecaFunctionalities {
         System.out.print(menu.displayMenuOptions());
     }
 
-    public void start(Menu menu) {
+    public void start() {
         Scanner in = new Scanner(System.in);
+        displayWelcomeMessage();
         do {
             displayMenu(menu);
 

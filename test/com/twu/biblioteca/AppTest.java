@@ -8,13 +8,12 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
 
-public class BibliotecaFunctionalitiesTest {
+public class AppTest {
 
     private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
@@ -25,20 +24,20 @@ public class BibliotecaFunctionalitiesTest {
 
     @Test
     public void checkIfWelcomeMsgIsAsPerRequirement() {
-        BibliotecaFunctionalities testWelcomeMsg = new BibliotecaFunctionalities();
-        testWelcomeMsg.displayWelcomeMsg();
+        App testWelcomeMsg = new App();
+        testWelcomeMsg.displayWelcomeMessage();
 
         assertEquals(outputStream.toString(), "Welcome" + System.lineSeparator());
     }
 
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
-        BibliotecaFunctionalities testMainMenu = new BibliotecaFunctionalities();
+        App testMainMenu = new App();
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
 
-        Menu menu = new Menu(books);
+        Menu menu = new Menu(new Books(books));
         testMainMenu.displayMenu(menu);
 
 
@@ -56,7 +55,7 @@ public class BibliotecaFunctionalitiesTest {
 //       Menu menu = mock(Menu.class);
 //
 //
-//        BibliotecaFunctionalities bibliotecaFunctionalities = new BibliotecaFunctionalities();
+//        App bibliotecaFunctionalities = new App();
 //        bibliotecaFunctionalities.start(menuStub);
 //
 //        verify(menuStub).computeMenuOption(2);

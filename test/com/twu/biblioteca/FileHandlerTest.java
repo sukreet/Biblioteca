@@ -13,13 +13,12 @@ public class FileHandlerTest {
     @Test
     public void shouldReadListOfAvailableBooks() throws IOException {
         String testFileName = "listOfBooks.txt";
-
         FileHandler readBooks = new FileHandler(testFileName);
-
         ArrayList<Book> actualListOfBooks = readBooks.readListOfBooks();
-
         ArrayList<Book> expectedListOfBooks = new ArrayList<>();
+
         expectedListOfBooks.add(new Book("Macbeth", "William Shakespear", 1611));
+        expectedListOfBooks.add(new Book("Julius Caesar", "William Shakespear", 1599));
         expectedListOfBooks.add(new Book("Angles And Demons", "Dan Brown", 2009));
 
         assertThat(actualListOfBooks, is(expectedListOfBooks));

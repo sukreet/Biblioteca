@@ -42,7 +42,7 @@ public class AppTest {
 
 
         String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1 : List Of Books" + System.lineSeparator()
-                + "2 : Quit" + System.lineSeparator();
+                + "2 : Quit" + System.lineSeparator() + "3 : Checkout Book" + System.lineSeparator();
 
         assertEquals(expectedMenuFormat, outputStream.toString());
     }

@@ -11,8 +11,10 @@ public class Menu {
     public Menu(Books books) {
         map.put(1, books);
         map.put(2, new Quit());
+        map.put(3, new CheckOut());
         menuList.add("1 : List Of Books");
         menuList.add("2 : Quit");
+        menuList.add("3 : Checkout Book");
     }
 
 

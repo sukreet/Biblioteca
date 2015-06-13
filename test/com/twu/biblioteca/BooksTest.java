@@ -142,7 +142,7 @@ public class BooksTest {
         list.add(new Book("Learning C", "John", 2000));
         Books books = new Books(list);
         books.issueBook("Head First Java");
-
+        
         assertFalse(books.checkAvailability("Head First Java"));
     }
 }

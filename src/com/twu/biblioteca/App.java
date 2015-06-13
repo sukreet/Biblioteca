@@ -19,7 +19,7 @@ public class App {
         System.out.println("Welcome");
     }
 
-    public void displayMenu(Menu menu) {
+    public void displayMenu() {
         System.out.println("Main Menu");
         System.out.print(menu.displayMenuOptions());
     }
@@ -28,7 +28,7 @@ public class App {
         Scanner in = new Scanner(System.in);
         displayWelcomeMessage();
         do {
-            displayMenu(menu);
+            displayMenu();
 
             input = in.nextInt();
             result = menu.computeMenuOption(input);

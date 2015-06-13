@@ -4,13 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class AppTest {
@@ -24,21 +22,23 @@ public class AppTest {
 
     @Test
     public void checkIfWelcomeMsgIsAsPerRequirement() {
-        App testWelcomeMsg = new App();
-        testWelcomeMsg.displayWelcomeMessage();
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        App app = new App(new Menu(new Books(list)));
+
+        app.displayWelcomeMessage();
 
         assertEquals(outputStream.toString(), "Welcome" + System.lineSeparator());
     }
 
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
-        App testMainMenu = new App();
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book("Head First Java", "Kathy", 1995));
-        books.add(new Book("Learning C", "John", 2000));
-
-        Menu menu = new Menu(new Books(books));
-        testMainMenu.displayMenu(menu);
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        App app =  new App(new Menu(new Books(list)));
+        app.displayMenu();
 
 
         String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1 : List Of Books" + System.lineSeparator()
@@ -58,7 +58,7 @@ public class AppTest {
 //        App bibliotecaFunctionalities = new App();
 //        bibliotecaFunctionalities.start(menuStub);
 //
-//        verify(menuStub).computeMenuOption(2);
+//        verify(menuStub).performAction(2);
 //    }
 
 

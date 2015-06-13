@@ -35,11 +35,11 @@ public class FileHandler {
                 if (Integer.parseInt(line.substring(90, 91)) == isAvailable) {
                     listOfBooks.add(new Book(name, author, yearOfPublication));
                 }
-                    sb.append(line);
-                    sb.append(System.lineSeparator());
-                    line = br.readLine();
-                }
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
             }
-            return listOfBooks;
         }
+        return listOfBooks;
     }
+}

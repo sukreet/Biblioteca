@@ -21,14 +21,14 @@ public class BookTest {
 
     @Test
     public void testForComparingNullObjectsWithA() {
-        Book firstBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
 
         assertThat(firstBook, not(equalTo(null)));
     }
 
     @Test
     public void testForDifferentObjects() {
-        Book firstBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
         Object one = new Integer(1);
 
         assertThat(firstBook, not(equalTo(one)));
@@ -36,9 +36,9 @@ public class BookTest {
 
     @Test
     public void testForEquality() {
-        Book firstBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
         ;
-        Book secondBook = new Book("book1","author",1992);
+        Book secondBook = new Book("book1", "author", 1992);
         ;
 
         assertEquals(firstBook, secondBook);
@@ -46,15 +46,15 @@ public class BookTest {
 
     @Test
     public void testForReflexivity() {
-        Book firstBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
 
         assertEquals(firstBook, firstBook);
     }
 
     @Test
     public void testForSymmetry() {
-        Book firstBook = new Book("book1","author",1992);
-        Book secondBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
+        Book secondBook = new Book("book1", "author", 1992);
 
         assertEquals(firstBook, secondBook);
         assertEquals(secondBook, firstBook);
@@ -62,9 +62,9 @@ public class BookTest {
 
     @Test
     public void testForTransitivity() {
-        Book firstBook = new Book("book1","author",1992);
-        Book secondBook = new Book("book1","author",1992);
-        Book thirdBook = new Book("book1","author",1992);
+        Book firstBook = new Book("book1", "author", 1992);
+        Book secondBook = new Book("book1", "author", 1992);
+        Book thirdBook = new Book("book1", "author", 1992);
 
         assertEquals(firstBook, secondBook);
         assertEquals(secondBook, firstBook);
@@ -73,8 +73,10 @@ public class BookTest {
 
     @Test
     public void equalityTestForHashCode() {
-        Book firstBook = new Book("book1","author",1992);;
-        Book secondBook = new Book("book1","author",1992);;
+        Book firstBook = new Book("book1", "author", 1992);
+        ;
+        Book secondBook = new Book("book1", "author", 1992);
+        ;
 
         assertEquals(firstBook.hashCode(), secondBook.hashCode());
     }

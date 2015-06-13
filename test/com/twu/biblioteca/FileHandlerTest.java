@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class FileHandlerTest {
     @Test

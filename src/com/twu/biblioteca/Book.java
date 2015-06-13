@@ -38,4 +38,8 @@ public class Book {
         result = 31 * result + yearOfPublication;
         return result;
     }
+
+    public boolean checkBookAvailability(String name) {
+        return this.isAvailable;
+    }
 }

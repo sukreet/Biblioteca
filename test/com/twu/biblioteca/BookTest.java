@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class BookTest {
     @Test
@@ -74,11 +75,14 @@ public class BookTest {
     @Test
     public void equalityTestForHashCode() {
         Book firstBook = new Book("book1", "author", 1992);
-        ;
         Book secondBook = new Book("book1", "author", 1992);
-        ;
 
         assertEquals(firstBook.hashCode(), secondBook.hashCode());
     }
 
+    @Test
+    public void shouldBeAbleToCheckIfbookIsAvailableOrnot(){
+        Book book = new Book("book1", "author", 1992);
+        assertTrue(book.checkBookAvailability("book1"));
+    }
 }

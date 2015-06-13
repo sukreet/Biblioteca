@@ -4,11 +4,13 @@ public class Book {
     String author;
     String name;
     int yearOfPublication;
+    Boolean isAvailable;
 
     public Book(String name, String author, int yearOfPublication) {
         this.author = author;
         this.name = name;
         this.yearOfPublication = yearOfPublication;
+        this.isAvailable = true;
     }
 
     @Override

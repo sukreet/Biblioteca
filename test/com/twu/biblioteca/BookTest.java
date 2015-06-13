@@ -5,9 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BookTest {
     @Test
@@ -83,6 +81,14 @@ public class BookTest {
     @Test
     public void shouldBeAbleToCheckIfbookIsAvailableOrnot(){
         Book book = new Book("book1", "author", 1992);
-        assertTrue(book.checkBookAvailability("book1"));
+
+        assertTrue(book.checkBookAvailability());
+    }
+
+    @Test
+    public void shouldBeAbleToMakeBookUnAailable() {
+        Book book = new Book("book1", "author", 1992);
+        book.issueBook();
+        assertFalse(book.checkBookAvailability());
     }
 }

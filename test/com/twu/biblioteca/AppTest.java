@@ -4,7 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -22,10 +24,14 @@ public class AppTest {
 
     @Test
     public void checkIfWelcomeMsgIsAsPerRequirement() {
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(isr);
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        App app = new App(new Menu(new Books(list)));
+        CheckOut checkOut = new CheckOut(bufferedReader, new Books(list));
+        App app = new App(new Menu(new Books(list), new Quit(),checkOut));
 
         app.displayWelcomeMessage();
 
@@ -34,10 +40,16 @@ public class AppTest {
 
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
+
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        App app =  new App(new Menu(new Books(list)));
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(isr);
+        CheckOut checkOut = new CheckOut(bufferedReader, new Books(list));
+
+        App app = new App(new Menu(new Books(list), new Quit(),checkOut));
+
         app.displayMenu();
 
 

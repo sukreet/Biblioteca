@@ -8,10 +8,10 @@ public class Menu {
     HashMap<Integer, MenuOperations> map = new HashMap<Integer, MenuOperations>();
     ArrayList<String> menuList = new ArrayList<String>();
 
-    public Menu(Books books) {
+    public Menu(Books books, Quit quit, CheckOut checkout) {
         map.put(1, books);
-        map.put(2, new Quit());
-        map.put(3, new CheckOut());
+        map.put(2, quit);
+        map.put(3, checkout);
         menuList.add("1 : List Of Books");
         menuList.add("2 : Quit");
         menuList.add("3 : Checkout Book");

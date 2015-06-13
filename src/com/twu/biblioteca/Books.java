@@ -51,12 +51,13 @@ public class Books implements MenuOperations {
         return false;
     }
 
-    public void issueBook(String name) {
+    public boolean issueBook(String name) {
         for (Book book : books) {
             if (book.checkNameIs(name) && book.checkAvailability()) {
                 book.issueBook();
+                return true;
             }
         }
+        return false;
     }
-
 }

@@ -123,4 +123,26 @@ public class BooksTest {
 
         assertTrue(books.checkExistence("Head First Java"));
     }
+
+    @Test
+    public void shouldCheckIfAnExistingBookIsAvailableInAListOfBooks() {
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+
+        assertTrue(books.checkAvailability("Head First Java"));
+    }
+
+
+    @Test
+    public void shouldmakeAnExistingBookUnAvailableInAListOfBooks() {
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+        books.issueBook("Head First Java");
+
+        assertFalse(books.checkAvailability("Head First Java"));
+    }
 }

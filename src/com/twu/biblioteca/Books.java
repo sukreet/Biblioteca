@@ -43,4 +43,20 @@ public class Books implements MenuOperations {
     }
 
 
+    public boolean checkAvailability(String name) {
+        for (Book book : books) {
+            if (book.checkNameIs(name))
+                return book.checkAvailability();
+        }
+        return false;
+    }
+
+    public void issueBook(String name) {
+        for (Book book : books) {
+            if (book.checkNameIs(name) && book.checkAvailability()) {
+                book.issueBook();
+            }
+        }
+    }
+
 }

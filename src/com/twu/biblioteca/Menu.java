@@ -32,8 +32,8 @@ public class Menu {
     public String computeMenuOption(int optionNumber) {
         if (optionNumber > menuList.size() || optionNumber <= 0)
             return "Select a valid option!";
-        Object object;
+        MenuOperations object;
         object = map.get(optionNumber);
-        return object.toString();
+        return object.action();
     }
 }

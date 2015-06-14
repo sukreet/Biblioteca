@@ -19,7 +19,7 @@ public class ReturnBook implements  MenuOperations {
     }
 
     @Override
-    public String toString() {
+    public String action() {
         try {
             name = bufferedReader.readLine();
         } catch (IOException e) {
@@ -29,6 +29,5 @@ public class ReturnBook implements  MenuOperations {
             return successFullBookReturntMsg;
         return unSuccessFullBookReturnMsg;
     }
-
 
 }

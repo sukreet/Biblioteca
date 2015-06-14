@@ -76,9 +76,6 @@ public class AppTest {
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
         App app = new App(new Menu(books, new Quit(), checkOut, returnBook));
 
-
-
-
         app.start(bufferedReader);
         assertTrue(true);
 

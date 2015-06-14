@@ -10,7 +10,7 @@ public class Books implements MenuOperations {
     }
 
     @Override
-    public String toString() {
+    public String action() {
         String list = "";
         for (Book book : books)
             if (book.Availability())

@@ -17,7 +17,7 @@ public class BooksTest {
         books.add(new Book("Learning C", "John", 2000));
         Books booklist = new Books(books);
 
-        String expectedFormat = booklist.toString();
+        String expectedFormat = booklist.action();
         String actualFormat = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator()
                 + String.format("%-40s", "Learning C") + String.format("%-40s", "John") + String.format("%-40s", 2000) + System.lineSeparator();
 
@@ -154,7 +154,7 @@ public class BooksTest {
         Books booklist = new Books(books);
 
         booklist.issueBook("Learning C");
-        String actualList = booklist.toString();
+        String actualList = booklist.action();
         String expectedList = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator();
 
         assertEquals(expectedList, actualList);

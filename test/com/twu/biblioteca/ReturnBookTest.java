@@ -24,7 +24,7 @@ public class ReturnBookTest {
         list.add(new Book("Learning C", "John", 2000));
 
         ReturnBook returnBook = new ReturnBook(bufferedReader, new Books(list));
-        String expected = returnBook.toString();
+        String expected = returnBook.action();
 
         assertThat(expected, is("That is not a valid book to return\n"));
     }
@@ -41,8 +41,8 @@ public class ReturnBookTest {
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
 
-        checkOut.toString();
-        String expected = returnBook.toString();
+        checkOut.action();
+        String expected = returnBook.action();
 
 
         assertThat(expected, is("Thank you for returning the book.\n"));

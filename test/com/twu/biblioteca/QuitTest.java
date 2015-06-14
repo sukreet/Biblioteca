@@ -9,7 +9,7 @@ public class QuitTest {
     public void shouldReturnNullValue() {
         Quit quit = new Quit();
 
-        String result = quit.toString();
+        String result = quit.action();
 
         assertEquals(" ", result);
 

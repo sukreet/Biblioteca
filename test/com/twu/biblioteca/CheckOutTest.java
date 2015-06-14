@@ -25,7 +25,8 @@ public class CheckOutTest {
         list.add(new Book("Learning C", "John", 2000));
 
         CheckOut checkout = new CheckOut(bufferedReader, new Books(list));
-        String expected = checkout.toString();
+        String expected = checkout.action();
+
         assertThat(expected, is("That book is not available.\n"));
     }
 
@@ -39,7 +40,8 @@ public class CheckOutTest {
         list.add(new Book("Learning C", "John", 2000));
 
         CheckOut checkout = new CheckOut(bufferedReader, new Books(list));
-        String expected = checkout.toString();
+        String expected = checkout.action();
+
         assertThat(expected, is("Thank you! Enjoy the book.\n"));
     }
 

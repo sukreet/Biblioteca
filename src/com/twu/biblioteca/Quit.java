@@ -4,7 +4,7 @@ package com.twu.biblioteca;
 public class Quit implements MenuOperations {
 
     @Override
-    public String toString() {
+    public String action() {
         return " ";
     }
 }

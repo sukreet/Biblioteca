@@ -50,4 +50,8 @@ public class Book {
     public boolean checkNameIs(String name) {
         return name.equals(this.name);
     }
+
+    public void returnBook() {
+        this.isAvailable = true;
+    }
 }

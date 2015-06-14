@@ -86,7 +86,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldBeAbleToMakeBookUnAailable() {
+    public void shouldBeAbleToMakeBookUnAvailable() {
         Book book = new Book("book1", "author", 1992);
         book.issueBook();
         assertFalse(book.Availability());
@@ -97,5 +97,13 @@ public class BookTest {
         Book book = new Book("book1", "author", 1992);
 
         assertTrue(book.checkNameIs("book1"));
+    }
+
+    @Test
+    public void shouldBeAbleToMakeBookAvailablewhenReturned() {
+        Book book = new Book("book1", "author", 1992);
+        book.issueBook();
+        book.returnBook();
+        assertTrue(book.Availability());
     }
 }

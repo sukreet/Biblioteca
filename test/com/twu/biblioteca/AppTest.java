@@ -33,7 +33,8 @@ public class AppTest {
         Books books = new Books(list);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        App app = new App(new Menu(books, new Quit(), checkOut, returnBook));
+        Menu menu = new Menu();
+        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
 
         app.displayWelcomeMessage();
 
@@ -51,13 +52,14 @@ public class AppTest {
         Books books = new Books(list);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        App app = new App(new Menu(books, new Quit(), checkOut, returnBook));
+        Menu menu = new Menu();
+        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
 
         app.displayMenu();
 
 
         String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1 : List Of Books" + System.lineSeparator()
-                + "2 : Quit" + System.lineSeparator() + "3 : Checkout Book" + System.lineSeparator()+ "4 : Return Book" + System.lineSeparator();
+                + "2 : Quit" + System.lineSeparator() + "3 : Checkout Book" + System.lineSeparator() + "4 : Return Book" + System.lineSeparator();
 
         assertEquals(expectedMenuFormat, outputStream.toString());
     }
@@ -74,7 +76,8 @@ public class AppTest {
         Books books = new Books(list);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        App app = new App(new Menu(books, new Quit(), checkOut, returnBook));
+        Menu menu = new Menu();
+        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
 
         app.start(bufferedReader);
         assertTrue(true);

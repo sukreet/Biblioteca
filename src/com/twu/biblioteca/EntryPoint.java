@@ -19,8 +19,10 @@ public class EntryPoint {
         Quit quit = new Quit();
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+        Menu menu = new Menu();
+        Dispatcher dispatcher = new Dispatcher(books, quit, checkOut, returnBook, menu);
 
-        Menu menu = new Menu(books, quit, checkOut, returnBook);
-        new App(menu).start(bufferedReader);
+        App app = new App(dispatcher, menu);
+        app.start(bufferedReader);
     }
 }

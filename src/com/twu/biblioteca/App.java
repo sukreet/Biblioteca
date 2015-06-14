@@ -8,9 +8,11 @@ public class App {
     private int input;
     private String result;
     private String exitToken = " ";
+    private Dispatcher dispatcher;
     private Menu menu;
 
-    public App(Menu menu) {
+    public App(Dispatcher dispatcher, Menu menu) {
+        this.dispatcher = dispatcher;
         this.menu = menu;
     }
 
@@ -36,7 +38,7 @@ public class App {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            result = menu.computeMenuOption(input);
+            result = dispatcher.computeMenuOption(input);
 
             System.out.println(result);
         } while (!result.equals(exitToken));

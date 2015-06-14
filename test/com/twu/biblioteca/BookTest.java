@@ -79,7 +79,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldBeAbleToCheckIfbookIsAvailableOrnot(){
+    public void shouldBeAbleToCheckIfbookIsAvailableOrnot() {
         Book book = new Book("book1", "author", 1992);
 
         assertTrue(book.Availability());

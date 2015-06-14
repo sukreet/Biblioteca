@@ -136,7 +136,7 @@ public class BooksTest {
 
 
     @Test
-    public void shouldmakeAnExistingBookUnAvailableInAListOfBooks() {
+    public void shouldMakeAnExistingBookUnAvailableInAListOfBooks() {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
@@ -158,5 +158,17 @@ public class BooksTest {
         String expectedList = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator();
 
         assertEquals(expectedList, actualList);
+    }
+
+    @Test
+    public void shouldMakeAnExistingBookAvailableInAListOfBooksWhenItIsReturned() {
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+        books.issueBook("Head First Java");
+        books.returnBook("Head First Java");
+
+        assertFalse(books.checkAvailability("Head First Java"));
     }
 }

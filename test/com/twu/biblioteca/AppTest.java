@@ -4,13 +4,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class AppTest {
@@ -31,7 +31,7 @@ public class AppTest {
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
         CheckOut checkOut = new CheckOut(bufferedReader, new Books(list));
-        App app = new App(new Menu(new Books(list), new Quit(),checkOut));
+        App app = new App(new Menu(new Books(list), new Quit(), checkOut));
 
         app.displayWelcomeMessage();
 
@@ -48,7 +48,7 @@ public class AppTest {
         BufferedReader bufferedReader = new BufferedReader(isr);
         CheckOut checkOut = new CheckOut(bufferedReader, new Books(list));
 
-        App app = new App(new Menu(new Books(list), new Quit(),checkOut));
+        App app = new App(new Menu(new Books(list), new Quit(), checkOut));
 
         app.displayMenu();
 
@@ -58,20 +58,24 @@ public class AppTest {
 
         assertEquals(expectedMenuFormat, outputStream.toString());
     }
-//
-//    @Test
-//    public void shouldNotContinueLoopIfTheUserSelectsQuit() {
-//       ByteArrayInputStream inputStream = new ByteArrayInputStream("2".getBytes());
-//        System.setIn(inputStream);
-//        Menu menuStub = mock(Menu.class);
-//       Menu menu = mock(Menu.class);
-//
-//
-//        App bibliotecaFunctionalities = new App();
-//        bibliotecaFunctionalities.start(menuStub);
-//
-//        verify(menuStub).performAction(2);
-//    }
+
+
+    @Test
+    public void shouldNotContinueLoopIfTheUserSelectsQuit() throws IOException {
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn("2");
+
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        CheckOut checkOut = new CheckOut(bufferedReader, new Books(list));
+
+        App app = new App(new Menu(new Books(list), new Quit(), checkOut));
+
+        app.start(bufferedReader);
+        assertTrue(true);
+
+    }
 
 
     @After

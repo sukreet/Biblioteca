@@ -20,6 +20,6 @@ public class EntryPoint {
         CheckOut checkOut = new CheckOut(bufferedReader,books);
 
         Menu menu = new Menu(books, quit , checkOut);
-        new App(menu).start();
+        new App(menu).start(bufferedReader);
     }
 }

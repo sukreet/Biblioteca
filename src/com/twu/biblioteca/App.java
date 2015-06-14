@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class App {
 
@@ -24,13 +25,17 @@ public class App {
         System.out.print(menu.displayMenuOptions());
     }
 
-    public void start() {
-        Scanner in = new Scanner(System.in);
+    public void start(BufferedReader bufferedReader) {
+
         displayWelcomeMessage();
         do {
             displayMenu();
-
-            input = in.nextInt();
+            try {
+                String st = bufferedReader.readLine();
+                input = Integer.parseInt(st);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             result = menu.computeMenuOption(input);
 
             System.out.println(result);

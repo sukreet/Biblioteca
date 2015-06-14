@@ -65,7 +65,7 @@ public class Books implements MenuOperations {
     public boolean returnBook(String name) {
         for (Book book : books) {
             if (book.checkNameIs(name) && !book.Availability()) {
-                book.issueBook();
+                book.returnBook();
                 return true;
             }
         }

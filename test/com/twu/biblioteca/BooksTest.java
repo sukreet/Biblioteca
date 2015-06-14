@@ -169,6 +169,6 @@ public class BooksTest {
         books.issueBook("Head First Java");
         books.returnBook("Head First Java");
 
-        assertFalse(books.checkAvailability("Head First Java"));
+        assertTrue(books.checkAvailability("Head First Java"));
     }
 }

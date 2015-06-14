@@ -16,10 +16,11 @@ public class EntryPoint {
         FileHandler fileHandler = new FileHandler("listOfBooks.txt");
         seedDataForBooks = fileHandler.readListOfBooks();
         Books books = new Books(seedDataForBooks);
-        Quit quit =  new Quit();
-        CheckOut checkOut = new CheckOut(bufferedReader,books);
+        Quit quit = new Quit();
+        CheckOut checkOut = new CheckOut(bufferedReader, books);
+        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
 
-        Menu menu = new Menu(books, quit , checkOut);
+        Menu menu = new Menu(books, quit, checkOut, returnBook);
         new App(menu).start(bufferedReader);
     }
 }

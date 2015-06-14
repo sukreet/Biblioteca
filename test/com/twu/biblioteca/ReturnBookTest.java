@@ -12,7 +12,8 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ReturnTest {
+public class ReturnBookTest {
+
     @Test
     public void shouldGiveProperMsgWhenEnteredBookDoseNotBelongToTheLibrary() throws IOException {
 

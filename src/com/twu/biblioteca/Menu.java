@@ -6,15 +6,17 @@ import java.util.HashMap;
 
 public class Menu {
     HashMap<Integer, MenuOperations> map = new HashMap<Integer, MenuOperations>();
-    ArrayList<String> menuList = new ArrayList<String>();
+    ArrayList<String> menuList = new ArrayList<>();
 
-    public Menu(Books books, Quit quit, CheckOut checkout) {
+    public Menu(Books books, Quit quit, CheckOut checkout, ReturnBook returnBook) {
         map.put(1, books);
         map.put(2, quit);
         map.put(3, checkout);
+        map.put(4, returnBook);
         menuList.add("1 : List Of Books");
         menuList.add("2 : Quit");
         menuList.add("3 : Checkout Book");
+        menuList.add("4 : Return Book");
     }
 
 

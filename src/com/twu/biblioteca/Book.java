@@ -40,10 +40,12 @@ public class Book {
     }
 
     public boolean Availability() {
+
         return this.isAvailable;
     }
 
     public void issueBook() {
+
         this.isAvailable = false;
     }
 

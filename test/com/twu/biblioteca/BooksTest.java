@@ -145,4 +145,18 @@ public class BooksTest {
 
         assertFalse(books.checkAvailability("Head First Java"));
     }
+
+    @Test
+    public void shouldDisplayDetailsOfAvailableBooksInProperFormat() {
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book("Head First Java", "Kathy", 1995));
+        books.add(new Book("Learning C", "John", 2000));
+        Books booklist = new Books(books);
+
+        booklist.issueBook("Learning C");
+        String actualList = booklist.toString();
+        String expectedList = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator();
+
+        assertEquals(expectedList, actualList);
+    }
 }

@@ -13,7 +13,8 @@ public class Books implements MenuOperations {
     public String toString() {
         String list = "";
         for (Book book : books)
-            list += book.toString() + System.lineSeparator();
+            if (book.Availability())
+                list += book.toString() + System.lineSeparator();
         return list;
     }
 
@@ -46,14 +47,14 @@ public class Books implements MenuOperations {
     public boolean checkAvailability(String name) {
         for (Book book : books) {
             if (book.checkNameIs(name))
-                return book.checkAvailability();
+                return book.Availability();
         }
         return false;
     }
 
     public boolean issueBook(String name) {
         for (Book book : books) {
-            if (book.checkNameIs(name) && book.checkAvailability()) {
+            if (book.checkNameIs(name) && book.Availability()) {
                 book.issueBook();
                 return true;
             }

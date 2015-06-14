@@ -82,14 +82,14 @@ public class BookTest {
     public void shouldBeAbleToCheckIfbookIsAvailableOrnot(){
         Book book = new Book("book1", "author", 1992);
 
-        assertTrue(book.checkAvailability());
+        assertTrue(book.Availability());
     }
 
     @Test
     public void shouldBeAbleToMakeBookUnAailable() {
         Book book = new Book("book1", "author", 1992);
         book.issueBook();
-        assertFalse(book.checkAvailability());
+        assertFalse(book.Availability());
     }
 
     @Test

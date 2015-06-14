@@ -4,7 +4,7 @@ public class Book {
     String author;
     String name;
     int yearOfPublication;
-    Boolean isAvailable;
+    private Boolean isAvailable;
 
     public Book(String name, String author, int yearOfPublication) {
         this.author = author;
@@ -39,7 +39,7 @@ public class Book {
         return result;
     }
 
-    public boolean checkAvailability() {
+    public boolean Availability() {
         return this.isAvailable;
     }
 

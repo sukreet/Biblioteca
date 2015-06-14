@@ -28,4 +28,25 @@ public class ReturnTest {
         assertThat(expected, is("That is not a valid book to return\n"));
     }
 
-  }
+    @Test
+    public void shouldGiveProperMsgWhenEnteredBookIsSuccessfullyReturned() throws IOException {
+
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn("Learning C");
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        Books books = new Books(list);
+        CheckOut checkOut = new CheckOut(bufferedReader, books);
+        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+
+        checkOut.toString();
+        String expected = returnBook.toString();
+
+
+        assertThat(expected, is("Thank you for returning the book.\n"));
+    }
+
+
+
+}

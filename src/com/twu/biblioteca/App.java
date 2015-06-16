@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class App {
@@ -10,37 +9,38 @@ public class App {
     private String exitToken = " ";
     private Dispatcher dispatcher;
     private Menu menu;
+    private ConsoleIO consoleIO;
 
-    public App(Dispatcher dispatcher, Menu menu) {
+    public App(Dispatcher dispatcher, Menu menu, ConsoleIO consoleIO) {
         this.dispatcher = dispatcher;
         this.menu = menu;
+        this.consoleIO = consoleIO;
     }
 
 
     public void displayWelcomeMessage() {
 
-        System.out.println("Welcome");
+        consoleIO.display("Welcome\n");
     }
 
     public void displayMenu() {
-        System.out.println("Main Menu");
-        System.out.print(menu.displayMenuOptions());
+        consoleIO.display("Main Menu\n");
+        consoleIO.display(menu.displayMenuOptions());
     }
 
-    public void start(BufferedReader bufferedReader) {
+    public void start() {
 
         displayWelcomeMessage();
         do {
             displayMenu();
             try {
-                String st = bufferedReader.readLine();
-                input = Integer.parseInt(st);
+                input = consoleIO.readInt();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             result = dispatcher.computeMenuOption(input);
 
-            System.out.println(result);
+            consoleIO.display(result);
         } while (!result.equals(exitToken));
     }
 

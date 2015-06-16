@@ -2,10 +2,10 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class Books implements MenuOperations {
+public class BookList implements MenuOperations {
     private ArrayList<Book> books = new ArrayList<>();
 
-    public Books(ArrayList<Book> books) {
+    public BookList(ArrayList<Book> books) {
         this.books = books;
     }
 
@@ -23,9 +23,9 @@ public class Books implements MenuOperations {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Books books1 = (Books) o;
+        BookList bookList1 = (BookList) o;
 
-        return !(books != null ? !books.equals(books1.books) : books1.books != null);
+        return !(books != null ? !books.equals(bookList1.books) : bookList1.books != null);
 
     }
 

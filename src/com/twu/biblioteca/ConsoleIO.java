@@ -3,10 +3,10 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class IOcon {
+public class ConsoleIO {
     BufferedReader bufferedReader;
 
-    public IOcon(BufferedReader bufferedReader) {
+    public ConsoleIO(BufferedReader bufferedReader) {
         this.bufferedReader = bufferedReader;
     }
 
@@ -21,6 +21,6 @@ public class IOcon {
     }
 
     public void display(String output) {
-        System.out.println(output);
+        System.out.print(output);
     }
 }

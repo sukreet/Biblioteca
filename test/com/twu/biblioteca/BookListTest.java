@@ -8,14 +8,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
-public class BooksTest {
+public class BookListTest {
 
     @Test
     public void shouldDisplayBookListInDetailsInProperFormat() {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
-        Books booklist = new Books(books);
+        BookList booklist = new BookList(books);
 
         String expectedFormat = booklist.action();
         String actualFormat = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator()
@@ -29,9 +29,9 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
+        BookList bookList = new BookList(list);
 
-        assertEquals(books, books);
+        assertEquals(bookList, bookList);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books book = new Books(list);
+        BookList book = new BookList(list);
 
         assertThat(book, not(equalTo(null)));
     }
@@ -49,10 +49,10 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books firstBooks = new Books(list);
-        Books secondBooks = new Books(list);
+        BookList firstBookList = new BookList(list);
+        BookList secondBookList = new BookList(list);
 
-        assertEquals(firstBooks, secondBooks);
+        assertEquals(firstBookList, secondBookList);
     }
 
     @Test
@@ -60,10 +60,10 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
+        BookList bookList = new BookList(list);
         Object one = new Integer(1);
 
-        assertThat(books, not(equalTo(one)));
+        assertThat(bookList, not(equalTo(one)));
     }
 
     @Test
@@ -71,13 +71,13 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books firstBooks = new Books(list);
-        Books secondBooks = new Books(list);
-        Books thirdBooks = new Books(list);
+        BookList firstBookList = new BookList(list);
+        BookList secondBookList = new BookList(list);
+        BookList thirdBookList = new BookList(list);
 
-        assertEquals(firstBooks, secondBooks);
-        assertEquals(secondBooks, firstBooks);
-        assertEquals(firstBooks, thirdBooks);
+        assertEquals(firstBookList, secondBookList);
+        assertEquals(secondBookList, firstBookList);
+        assertEquals(firstBookList, thirdBookList);
     }
 
     @Test
@@ -85,11 +85,11 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books firstBooks = new Books(list);
-        Books secondBooks = new Books(list);
+        BookList firstBookList = new BookList(list);
+        BookList secondBookList = new BookList(list);
 
-        assertEquals(firstBooks, secondBooks);
-        assertEquals(secondBooks, firstBooks);
+        assertEquals(firstBookList, secondBookList);
+        assertEquals(secondBookList, firstBookList);
     }
 
     @Test
@@ -97,10 +97,10 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books firstBooks = new Books(list);
-        Books secondBooks = new Books(list);
+        BookList firstBookList = new BookList(list);
+        BookList secondBookList = new BookList(list);
 
-        assertEquals(firstBooks.hashCode(), secondBooks.hashCode());
+        assertEquals(firstBookList.hashCode(), secondBookList.hashCode());
     }
 
 
@@ -109,9 +109,9 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
+        BookList bookList = new BookList(list);
 
-        assertFalse(books.checkExistence("book1"));
+        assertFalse(bookList.checkExistence("book1"));
     }
 
     @Test
@@ -119,9 +119,9 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
+        BookList bookList = new BookList(list);
 
-        assertTrue(books.checkExistence("Head First Java"));
+        assertTrue(bookList.checkExistence("Head First Java"));
     }
 
     @Test
@@ -129,9 +129,9 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
+        BookList bookList = new BookList(list);
 
-        assertTrue(books.checkAvailability("Head First Java"));
+        assertTrue(bookList.checkAvailability("Head First Java"));
     }
 
 
@@ -140,10 +140,10 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
-        books.issueBook("Head First Java");
+        BookList bookList = new BookList(list);
+        bookList.issueBook("Head First Java");
 
-        assertFalse(books.checkAvailability("Head First Java"));
+        assertFalse(bookList.checkAvailability("Head First Java"));
     }
 
     @Test
@@ -151,7 +151,7 @@ public class BooksTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy", 1995));
         books.add(new Book("Learning C", "John", 2000));
-        Books booklist = new Books(books);
+        BookList booklist = new BookList(books);
 
         booklist.issueBook("Learning C");
         String actualList = booklist.action();
@@ -165,10 +165,10 @@ public class BooksTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
-        books.issueBook("Head First Java");
-        books.returnBook("Head First Java");
+        BookList bookList = new BookList(list);
+        bookList.issueBook("Head First Java");
+        bookList.returnBook("Head First Java");
 
-        assertTrue(books.checkAvailability("Head First Java"));
+        assertTrue(bookList.checkAvailability("Head First Java"));
     }
 }

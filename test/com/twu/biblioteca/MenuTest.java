@@ -14,7 +14,7 @@ public class MenuTest {
 
         String actualOutput = menu.displayMenuOptions();
 
-        assertThat(actualOutput, is("1 : List Of Books\n2 : Quit\n3 : Checkout Book\n4 : Return Book\n"));
+        assertThat(actualOutput, is("1 : List Of BookList\n2 : Quit\n3 : Checkout Book\n4 : Return Book\n"));
     }
 
     @Test

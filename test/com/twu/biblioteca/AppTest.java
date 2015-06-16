@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 
 public class AppTest {
@@ -27,12 +26,13 @@ public class AppTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
-        IOcon iOcon = new IOcon(bufferedReader);
-        CheckOut checkOut = new CheckOut(iOcon, books);
-        ReturnBook returnBook = new ReturnBook(iOcon, books);
+        BookList bookList = new BookList(list);
+        ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
+        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
+        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, menu);
+        app = new App(dispatcher, menu, consoleIO);
 
     }
 
@@ -50,23 +50,25 @@ public class AppTest {
         app.displayMenu();
 
 
-        String expectedMenuFormat = "Main Menu" + System.lineSeparator() + "1 : List Of Books" + System.lineSeparator()
-                + "2 : Quit" + System.lineSeparator() + "3 : Checkout Book" + System.lineSeparator() + "4 : Return Book" + System.lineSeparator();
+        String expectedMenuFormat = "Main Menu" + System.lineSeparator() +
+                "1 : List Of BookList" + System.lineSeparator() +
+                "2 : Quit" + System.lineSeparator() +
+                "3 : Checkout Book" + System.lineSeparator() +
+                "4 : Return Book" + System.lineSeparator();
 
         assertEquals(expectedMenuFormat, outputStream.toString());
     }
 
+//    @Test
+//    public void shouldNotContinueLoopIfTheUserSelectsQuit() throws IOException {
+//        ConsoleIO io = mock(ConsoleIO.class);
+//        when(io.readInt()).thenReturn(2);
+//
+//        app.start();
+//
+//        assertTrue(true);
+//    }
 
-    @Test
-    public void shouldNotContinueLoopIfTheUserSelectsQuit() throws IOException {
-        BufferedReader bufferedReader = mock(BufferedReader.class);
-        when(bufferedReader.readLine()).thenReturn("2");
-
-        app.start(bufferedReader);
-
-        assertTrue(true);
-
-    }
 
 
     @After

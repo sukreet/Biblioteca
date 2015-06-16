@@ -23,8 +23,8 @@ public class CheckOutTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        IOcon iOcon  =new IOcon(bufferedReader);
-        CheckOut checkout = new CheckOut(iOcon, new Books(list));
+        ConsoleIO consoleIO =new ConsoleIO(bufferedReader);
+        CheckOut checkout = new CheckOut(consoleIO, new BookList(list));
         String expected = checkout.action();
 
         assertThat(expected, is("That book is not available.\n"));
@@ -38,8 +38,8 @@ public class CheckOutTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        IOcon iOcon  =new IOcon(bufferedReader);
-        CheckOut checkout = new CheckOut(iOcon, new Books(list));
+        ConsoleIO consoleIO =new ConsoleIO(bufferedReader);
+        CheckOut checkout = new CheckOut(consoleIO, new BookList(list));
         String expected = checkout.action();
 
         assertThat(expected, is("Thank you! Enjoy the book.\n"));

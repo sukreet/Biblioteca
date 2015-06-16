@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 
 public class DispatcherTest {
     private Dispatcher dispatcher;
@@ -20,13 +21,13 @@ public class DispatcherTest {
         list.add(new Book("Learning C", "John", 2000));
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(isr);
-        Books books = new Books(list);
-        IOcon iOcon = new IOcon(bufferedReader);
+        BookList bookList = new BookList(list);
+        ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
 
-        CheckOut checkOut = new CheckOut(iOcon, books);
-        ReturnBook returnBook = new ReturnBook(iOcon, books);
+        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, menu);
 
     }
 
@@ -48,4 +49,5 @@ public class DispatcherTest {
 
         assertThat(actualOutput, is("Select a valid option!"));
     }
+
 }

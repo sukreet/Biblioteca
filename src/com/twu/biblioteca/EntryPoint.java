@@ -15,15 +15,15 @@ public class EntryPoint {
         ArrayList<Book> seedDataForBooks;
         FileHandler fileHandler = new FileHandler("listOfBooks.txt");
         seedDataForBooks = fileHandler.readListOfBooks();
-        Books books = new Books(seedDataForBooks);
+        BookList bookList = new BookList(seedDataForBooks);
         Quit quit = new Quit();
-        IOcon iOcon = new IOcon(bufferedReader);
-        CheckOut checkOut = new CheckOut(iOcon, books);
-        ReturnBook returnBook = new ReturnBook(iOcon, books);
+        ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
+        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(books, quit, checkOut, returnBook, menu);
+        Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOut, returnBook, menu);
 
-        App app = new App(dispatcher, menu);
-        app.start(bufferedReader);
+        App app = new App(dispatcher, menu, consoleIO);
+        app.start();
     }
 }

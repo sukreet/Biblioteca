@@ -12,10 +12,10 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class IOconTest {
+public class ConsoleIOTest {
 
     private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private IOcon iOcon;
+    private ConsoleIO consoleIO;
 
     @Before
     public void setUp() throws Exception {
@@ -27,9 +27,9 @@ public class IOconTest {
 
         BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("1");
-        iOcon = new IOcon(bufferedReader);
+        consoleIO = new ConsoleIO(bufferedReader);
 
-        assertEquals(iOcon.readInt(), 1);
+        assertEquals(consoleIO.readInt(), 1);
     }
 
     @Test
@@ -37,19 +37,19 @@ public class IOconTest {
 
         BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("hello ");
-        iOcon = new IOcon(bufferedReader);
+        consoleIO = new ConsoleIO(bufferedReader);
 
-        assertEquals(iOcon.read(), "hello ");
+        assertEquals(consoleIO.read(), "hello ");
     }
 
     @Test
     public void shouldPrintCorrectly() throws IOException {
 
         BufferedReader bufferedReader = mock(BufferedReader.class);
-        iOcon = new IOcon(bufferedReader);
-        iOcon.display("hola");
+        consoleIO = new ConsoleIO(bufferedReader);
+        consoleIO.display("hola");
 
-        assertEquals(outputStream.toString(), "hola\n");
+        assertEquals(outputStream.toString(), "hola");
 
     }
 }

@@ -1,31 +1,30 @@
 package com.twu.biblioteca;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CheckOut implements MenuOperations {
     private String sucessFullCheckOutMsg;
     private String unSucessFullCheckOutMsg;
-    private Books books;
+    private BookList bookList;
     private String name;
-    IOcon iOcon;
+    ConsoleIO consoleIO;
 
-    public CheckOut(IOcon iOcon, Books books) {
-        this.iOcon = iOcon;
+    public CheckOut(ConsoleIO consoleIO, BookList bookList) {
+        this.consoleIO = consoleIO;
         sucessFullCheckOutMsg = "Thank you! Enjoy the book.\n";
         unSucessFullCheckOutMsg = "That book is not available.\n";
-        this.books = books;
+        this.bookList = bookList;
     }
 
     @Override
     public String action() {
         try {
-            name = iOcon.read();
+            name = consoleIO.read();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (books.issueBook(name))
+        if (bookList.issueBook(name))
             return sucessFullCheckOutMsg;
         return unSucessFullCheckOutMsg;
     }

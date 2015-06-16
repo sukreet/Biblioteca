@@ -7,7 +7,7 @@ public class Menu {
     private ArrayList<String> menuList = new ArrayList<String>();
 
     public Menu() {
-        menuList.add("1 : List Of Books");
+        menuList.add("1 : List Of BookList");
         menuList.add("2 : Quit");
         menuList.add("3 : Checkout Book");
         menuList.add("4 : Return Book");

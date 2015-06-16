@@ -21,8 +21,10 @@ public class DispatcherTest {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(isr);
         Books books = new Books(list);
+        IOcon iOcon = new IOcon(bufferedReader);
+
         CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+        ReturnBook returnBook = new ReturnBook(iOcon, books);
         Menu menu = new Menu();
         dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);
 

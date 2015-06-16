@@ -4,15 +4,15 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ReturnBook implements  MenuOperations {
+public class ReturnBook implements MenuOperations {
     private String successFullBookReturntMsg;
     private String unSuccessFullBookReturnMsg;
     private Books books;
     private String name;
-    private BufferedReader bufferedReader;
+    private IOcon iOcon;
 
-    public ReturnBook(BufferedReader bufferedReader, Books books) {
-        this.bufferedReader = bufferedReader;
+    public ReturnBook(IOcon iOcon, Books books) {
+        this.iOcon = iOcon;
         successFullBookReturntMsg = "Thank you for returning the book.\n";
         unSuccessFullBookReturnMsg = "That is not a valid book to return\n";
         this.books = books;
@@ -21,7 +21,7 @@ public class ReturnBook implements  MenuOperations {
     @Override
     public String action() {
         try {
-            name = bufferedReader.readLine();
+            name = iOcon.read();
         } catch (IOException e) {
             e.printStackTrace();
         }

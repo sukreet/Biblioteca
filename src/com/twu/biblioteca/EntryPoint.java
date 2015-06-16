@@ -17,8 +17,9 @@ public class EntryPoint {
         seedDataForBooks = fileHandler.readListOfBooks();
         Books books = new Books(seedDataForBooks);
         Quit quit = new Quit();
+        IOcon iOcon = new IOcon(bufferedReader);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+        ReturnBook returnBook = new ReturnBook(iOcon, books);
         Menu menu = new Menu();
         Dispatcher dispatcher = new Dispatcher(books, quit, checkOut, returnBook, menu);
 

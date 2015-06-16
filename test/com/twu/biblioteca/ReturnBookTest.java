@@ -22,8 +22,8 @@ public class ReturnBookTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-
-        ReturnBook returnBook = new ReturnBook(bufferedReader, new Books(list));
+        IOcon iOcon = new IOcon(bufferedReader);
+        ReturnBook returnBook = new ReturnBook(iOcon, new Books(list));
         String expected = returnBook.action();
 
         assertThat(expected, is("That is not a valid book to return\n"));
@@ -38,8 +38,9 @@ public class ReturnBookTest {
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
         Books books = new Books(list);
+        IOcon iOcon = new IOcon(bufferedReader);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+        ReturnBook returnBook = new ReturnBook(iOcon, books);
 
         checkOut.action();
         String expected = returnBook.action();

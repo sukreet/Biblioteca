@@ -29,7 +29,8 @@ public class AppTest {
         list.add(new Book("Learning C", "John", 2000));
         Books books = new Books(list);
         CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
+        IOcon iOcon = new IOcon(bufferedReader);
+        ReturnBook returnBook = new ReturnBook(iOcon, books);
         Menu menu = new Menu();
         app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
 

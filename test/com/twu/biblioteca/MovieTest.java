@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class MovieTest {
 
@@ -57,7 +58,7 @@ public class MovieTest {
     }
 
     @Test
-    public void testForSymmetry() {        Movie movie = new Movie("Movie Name", "Director Mane", 1999, "7/10");
+    public void testForSymmetry() {
         Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
         Movie movieTwo = new Movie("Movie Name", "Director Mane", 1999, "7/10");
 
@@ -84,4 +85,11 @@ public class MovieTest {
         assertEquals(movieOne.hashCode(), movieTwo.hashCode());
     }
 
+    @Test
+    public void shouldBeAbleToVerifyMovieName() {
+        Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
+
+        assertTrue(movieOne.checkNameIs("Movie Name"));
+
+    }
 }

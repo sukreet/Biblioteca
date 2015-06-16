@@ -38,7 +38,6 @@ public class AppTest {
     @Test
     public void checkIfWelcomeMsgIsAsPerRequirement() {
 
-
         app.displayWelcomeMessage();
 
         assertEquals(outputStream.toString(), "Welcome" + System.lineSeparator());

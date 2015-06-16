@@ -23,7 +23,7 @@ public class IOconTest {
     }
 
     @Test
-    public void shouldReadIntCorrectly () throws IOException {
+    public void shouldReadIntCorrectly() throws IOException {
 
         BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("1");
@@ -33,4 +33,14 @@ public class IOconTest {
 
     }
 
+    @Test
+    public void shouldReadStringCorrectly() throws IOException {
+
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn("hello ");
+        iOcon = new IOcon(bufferedReader);
+
+        assertEquals(iOcon.read(), "hello ");
+
+    }
 }

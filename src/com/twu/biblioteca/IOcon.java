@@ -15,4 +15,8 @@ public class IOcon {
         return Integer.parseInt(st);
 
     }
+
+    public String read() throws IOException {
+        return bufferedReader.readLine();
+    }
 }

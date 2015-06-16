@@ -18,7 +18,7 @@ public class EntryPoint {
         Books books = new Books(seedDataForBooks);
         Quit quit = new Quit();
         IOcon iOcon = new IOcon(bufferedReader);
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
+        CheckOut checkOut = new CheckOut(iOcon, books);
         ReturnBook returnBook = new ReturnBook(iOcon, books);
         Menu menu = new Menu();
         Dispatcher dispatcher = new Dispatcher(books, quit, checkOut, returnBook, menu);

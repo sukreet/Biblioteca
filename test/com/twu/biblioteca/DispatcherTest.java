@@ -23,7 +23,7 @@ public class DispatcherTest {
         Books books = new Books(list);
         IOcon iOcon = new IOcon(bufferedReader);
 
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
+        CheckOut checkOut = new CheckOut(iOcon, books);
         ReturnBook returnBook = new ReturnBook(iOcon, books);
         Menu menu = new Menu();
         dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);

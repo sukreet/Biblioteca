@@ -9,10 +9,10 @@ public class CheckOut implements MenuOperations {
     private String unSucessFullCheckOutMsg;
     private Books books;
     private String name;
-    private BufferedReader bufferedReader;
+    IOcon iOcon;
 
-    public CheckOut(BufferedReader bufferedReader, Books books) {
-        this.bufferedReader = bufferedReader;
+    public CheckOut(IOcon iOcon, Books books) {
+        this.iOcon = iOcon;
         sucessFullCheckOutMsg = "Thank you! Enjoy the book.\n";
         unSucessFullCheckOutMsg = "That book is not available.\n";
         this.books = books;
@@ -21,7 +21,7 @@ public class CheckOut implements MenuOperations {
     @Override
     public String action() {
         try {
-            name = bufferedReader.readLine();
+            name = iOcon.read();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -39,7 +39,7 @@ public class ReturnBookTest {
         list.add(new Book("Learning C", "John", 2000));
         Books books = new Books(list);
         IOcon iOcon = new IOcon(bufferedReader);
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
+        CheckOut checkOut = new CheckOut(iOcon, books);
         ReturnBook returnBook = new ReturnBook(iOcon, books);
 
         checkOut.action();

@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockingDetails;
+import static org.mockito.Mockito.when;
 
 
 public class AppTest {
 
     private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private App app;
+    private String exitToken = " ";
 
 
     @Before
@@ -67,16 +70,19 @@ public class AppTest {
         assertEquals(expectedMenuFormat, outputStream.toString());
     }
 
-//    @Test
-//    public void shouldNotContinueLoopIfTheUserSelectsQuit() throws IOException {
-//        ConsoleIO io = mock(ConsoleIO.class);
-//        when(io.readInt()).thenReturn(2);
-//
-//        app.start();
-//
-//        assertTrue(true);
-//    }
+    @Test
+    public void shouldNotContinueLoopIfTheUserSelectsQuit() throws IOException {
+        ConsoleIO io = mock(ConsoleIO.class);
+        when(io.readInt()).thenReturn(2);
+        Dispatcher dispatcher = mock(Dispatcher.class);
+        when(dispatcher.computeMenuOption(2)).thenReturn(exitToken);
+        Menu menu = mock(Menu.class);
+        App app = new App(dispatcher, menu, io);
 
+        app.start();
+
+        assertTrue(true);
+    }
 
 
     @After

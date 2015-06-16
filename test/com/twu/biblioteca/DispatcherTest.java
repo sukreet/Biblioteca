@@ -4,12 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class DispatcherTest {
     private Dispatcher dispatcher;
@@ -32,7 +34,7 @@ public class DispatcherTest {
         CheckOut checkOut = new CheckOut(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList , menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
 
     }
 
@@ -55,4 +57,65 @@ public class DispatcherTest {
         assertThat(actualOutput, is("Select a valid option!"));
     }
 
+    @Test
+    public void shouldDisplayListOfMoviesWhenUserGivesFive() {
+
+        String actualOutput = dispatcher.computeMenuOption(5);
+        String expectedOutput = String.format("%-40s", "Movie1") + String.format("%-40s", "Director1") +
+                String.format("%-40s", 1999) + String.format("%-40s", "7/10") + System.lineSeparator() +
+                String.format("%-40s", "Movie2") + String.format("%-40s", "Director2") +
+                String.format("%-40s", 1998) + String.format("%-40s", "unrated") + System.lineSeparator();
+
+
+        assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void shouldCallCheckoutActionWhenUserGivesThree() throws IOException {
+
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        BookList bookList = new BookList(list);
+        ConsoleIO consoleIO = mock(ConsoleIO.class);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
+        movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
+        MovieList movieList = new MovieList(movies);
+        when(consoleIO.read()).thenReturn("book1");
+        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        Menu menu = new Menu();
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+
+        String actualOutput = dispatcher.computeMenuOption(3);
+        String expectedOutput = "That book is not available.\n";
+
+        assertThat(actualOutput, is(expectedOutput));
+    }
+
+
+    @Test
+    public void shouldCallReturnBookActionWhenUserGivesFour() throws IOException {
+
+        ArrayList<Book> list = new ArrayList<>();
+        list.add(new Book("Head First Java", "Kathy", 1995));
+        list.add(new Book("Learning C", "John", 2000));
+        BookList bookList = new BookList(list);
+        ConsoleIO consoleIO = mock(ConsoleIO.class);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
+        movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
+        MovieList movieList = new MovieList(movies);
+        when(consoleIO.read()).thenReturn("book1");
+        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        Menu menu = new Menu();
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+
+        String actualOutput = dispatcher.computeMenuOption(4);
+        String expectedOutput = "That is not a valid book to return\n";
+
+        assertThat(actualOutput, is(expectedOutput));
+    }
 }

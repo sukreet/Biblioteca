@@ -5,7 +5,10 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class MovieListTest {
     private ArrayList<Movie> movies = new ArrayList<>();
@@ -29,5 +32,68 @@ public class MovieListTest {
 
         assertEquals(expectedFormat, actualFormat);
 
+    }
+
+    @Test
+    public void testForReflexivity() {
+        movieList = new MovieList(movies);
+
+        assertEquals(movieList, movieList);
+    }
+
+    @Test
+    public void testForComparingNullObjectsWithA() {
+        movieList = new MovieList(movies);
+
+        assertThat(movieList, not(equalTo(null)));
+    }
+
+    @Test
+    public void testForEquality() {
+        MovieList movieListOne = new MovieList(movies);
+        MovieList movieListTwo = new MovieList(movies);
+
+        assertEquals(movieListOne, movieListTwo);
+    }
+
+    @Test
+    public void testForDifferentObjects() {
+        movieList = new MovieList(movies);
+        Object one = new Integer(1);
+
+        assertThat(movieList, not(equalTo(one)));
+    }
+
+    @Test
+    public void testForTransitivity() {
+        MovieList movieListOne = new MovieList(movies);
+        MovieList movieListTwo = new MovieList(movies);
+        MovieList thirdBookListThree = new MovieList(movies);
+
+        assertEquals(movieListOne, movieListOne);
+        assertEquals(thirdBookListThree, movieListTwo);
+        assertEquals(movieListOne, thirdBookListThree);
+    }
+
+    @Test
+    public void testForSymmetry() {
+
+        MovieList movieListOne = new MovieList(movies);
+        MovieList movieListTwo = new MovieList(movies);
+
+        assertEquals(movieListOne, movieListTwo);
+        assertEquals(movieListTwo, movieListOne);
+    }
+
+    @Test
+    public void equalityTestForHashCode() {
+
+        MovieList movieListOne = new MovieList(movies);
+        MovieList movieListTwo = new MovieList(movies);
+
+        assertEquals(movieListOne, movieListTwo);
+        assertEquals(movieListTwo, movieListOne);
+
+        assertEquals(movieListOne.hashCode(), movieListTwo.hashCode());
     }
 }

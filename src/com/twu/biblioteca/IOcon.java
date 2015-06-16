@@ -19,4 +19,8 @@ public class IOcon {
     public String read() throws IOException {
         return bufferedReader.readLine();
     }
+
+    public void display(String output) {
+        System.out.println(output);
+    }
 }

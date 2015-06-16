@@ -30,7 +30,6 @@ public class IOconTest {
         iOcon = new IOcon(bufferedReader);
 
         assertEquals(iOcon.readInt(), 1);
-
     }
 
     @Test
@@ -41,6 +40,16 @@ public class IOconTest {
         iOcon = new IOcon(bufferedReader);
 
         assertEquals(iOcon.read(), "hello ");
+    }
+
+    @Test
+    public void shouldPrintCorrectly() throws IOException {
+
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        iOcon = new IOcon(bufferedReader);
+        iOcon.display("hola");
+
+        assertEquals(outputStream.toString(), "hola\n");
 
     }
 }

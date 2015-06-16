@@ -4,16 +4,16 @@ package com.twu.biblioteca;
 import java.io.IOException;
 
 public class CheckOut implements MenuOperations {
-    private String sucessFullCheckOutMsg;
-    private String unSucessFullCheckOutMsg;
+    private String successFullCheckOutMsg;
+    private String unSuccessFullCheckOutMsg;
     private BookList bookList;
     private String name;
-    ConsoleIO consoleIO;
+    private ConsoleIO consoleIO;
 
     public CheckOut(ConsoleIO consoleIO, BookList bookList) {
         this.consoleIO = consoleIO;
-        sucessFullCheckOutMsg = "Thank you! Enjoy the book.\n";
-        unSucessFullCheckOutMsg = "That book is not available.\n";
+        successFullCheckOutMsg = "Thank you! Enjoy the book.\n";
+        unSuccessFullCheckOutMsg = "That book is not available.\n";
         this.bookList = bookList;
     }
 
@@ -25,8 +25,8 @@ public class CheckOut implements MenuOperations {
             e.printStackTrace();
         }
         if (bookList.issueBook(name))
-            return sucessFullCheckOutMsg;
-        return unSucessFullCheckOutMsg;
+            return successFullCheckOutMsg;
+        return unSuccessFullCheckOutMsg;
     }
 
 }

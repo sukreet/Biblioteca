@@ -16,15 +16,12 @@ import static org.mockito.Mockito.when;
 public class AppTest {
 
     private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private App app;
+
 
     @Before
     public void setUp() throws Exception {
         System.setOut(new PrintStream(outputStream));
-    }
-
-    @Test
-    public void checkIfWelcomeMsgIsAsPerRequirement() {
-
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(isr);
         ArrayList<Book> list = new ArrayList<>();
@@ -34,7 +31,13 @@ public class AppTest {
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
         Menu menu = new Menu();
-        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
+        app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
+
+    }
+
+    @Test
+    public void checkIfWelcomeMsgIsAsPerRequirement() {
+
 
         app.displayWelcomeMessage();
 
@@ -43,17 +46,6 @@ public class AppTest {
 
     @Test
     public void checkIfMainMenuIsAsPerRequirement() {
-
-        ArrayList<Book> list = new ArrayList<>();
-        list.add(new Book("Head First Java", "Kathy", 1995));
-        list.add(new Book("Learning C", "John", 2000));
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        Books books = new Books(list);
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        Menu menu = new Menu();
-        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
 
         app.displayMenu();
 
@@ -70,16 +62,8 @@ public class AppTest {
         BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("2");
 
-        ArrayList<Book> list = new ArrayList<>();
-        list.add(new Book("Head First Java", "Kathy", 1995));
-        list.add(new Book("Learning C", "John", 2000));
-        Books books = new Books(list);
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        Menu menu = new Menu();
-        App app = new App(new Dispatcher(books, new Quit(), checkOut, returnBook, menu), menu);
-
         app.start(bufferedReader);
+
         assertTrue(true);
 
     }

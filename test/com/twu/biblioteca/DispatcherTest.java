@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -10,9 +11,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class DispatcherTest {
+    private Dispatcher dispatcher;
 
-    @Test
-    public void shouldDisplayListOfBooksWhenUserGivesOne() {
+    @Before
+    public void setuo() {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
@@ -22,7 +24,12 @@ public class DispatcherTest {
         CheckOut checkOut = new CheckOut(bufferedReader, books);
         ReturnBook returnBook = new ReturnBook(bufferedReader, books);
         Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);
+        dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);
+
+    }
+
+    @Test
+    public void shouldDisplayListOfBooksWhenUserGivesOne() {
 
         String actualOutput = dispatcher.computeMenuOption(1);
         String expectedOutput = String.format("%-40s", "Head First Java") + String.format("%-40s", "Kathy") + String.format("%-40s", 1995) + System.lineSeparator()
@@ -34,16 +41,6 @@ public class DispatcherTest {
 
     @Test
     public void shouldDisplayInvalidMenuOptionWhenIncorrectMenuOptionIsPassed() {
-        ArrayList<Book> list = new ArrayList<>();
-        list.add(new Book("Head First Java", "Kathy", 1995));
-        list.add(new Book("Learning C", "John", 2000));
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        Books books = new Books(list);
-        CheckOut checkOut = new CheckOut(bufferedReader, books);
-        ReturnBook returnBook = new ReturnBook(bufferedReader, books);
-        Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(books, new Quit(), checkOut, returnBook, menu);
 
         String actualOutput = dispatcher.computeMenuOption(8);
 

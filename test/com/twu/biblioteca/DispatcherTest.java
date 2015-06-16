@@ -23,11 +23,16 @@ public class DispatcherTest {
         BufferedReader bufferedReader = new BufferedReader(isr);
         BookList bookList = new BookList(list);
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
+        movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
+        MovieList movieList = new MovieList(movies);
+
 
         CheckOut checkOut = new CheckOut(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList , menu);
 
     }
 

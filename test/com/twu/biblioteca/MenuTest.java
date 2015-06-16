@@ -13,8 +13,8 @@ public class MenuTest {
         Menu menu = new Menu();
 
         String actualOutput = menu.displayMenuOptions();
-
-        assertThat(actualOutput, is("1 : List Of BookList\n2 : Quit\n3 : Checkout Book\n4 : Return Book\n"));
+        String expectedOutput = "1 : List Of Books\n2 : Quit\n3 : Checkout Book\n4 : Return Book\n5 : List Of Movies\n";
+        assertThat(actualOutput, is(expectedOutput));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class MenuTest {
 
         int actualResult = menu.returnMenuSize();
 
-        assertThat(actualResult, is(4));
+        assertThat(actualResult, is(5));
     }
 
 

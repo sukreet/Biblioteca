@@ -11,8 +11,6 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-//import static org.hamcrest.CoreMatchers.is;
-
 public class CheckOutTest {
 
     @Test

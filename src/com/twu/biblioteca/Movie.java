@@ -20,4 +20,28 @@ public class Movie {
     public String toString() {
         return (String.format("%-40s", name) + String.format("%-40s", director) + String.format("%-40s", yearOfRelease) + String.format("%-40s", rating));
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Movie movie = (Movie) o;
+
+        if (yearOfRelease != movie.yearOfRelease) return false;
+        if (!director.equals(movie.director)) return false;
+        if (!name.equals(movie.name)) return false;
+        return rating.equals(movie.rating);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = director.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + yearOfRelease;
+        result = 31 * result + rating.hashCode();
+        return result;
+    }
 }

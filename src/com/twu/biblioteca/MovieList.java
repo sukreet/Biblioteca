@@ -34,5 +34,13 @@ public class MovieList implements MenuOperations {
     public int hashCode() {
         return movies != null ? movies.hashCode() : 0;
     }
+
+    public boolean checkExistence(String name) {
+        for (Movie movie : movies) {
+            if (movie.checkNameIs(name))
+                return true;
+        }
+        return false;
+    }
 }
 

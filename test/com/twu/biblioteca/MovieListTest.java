@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class MovieListTest {
     private ArrayList<Movie> movies = new ArrayList<>();
@@ -95,5 +94,19 @@ public class MovieListTest {
         assertEquals(movieListTwo, movieListOne);
 
         assertEquals(movieListOne.hashCode(), movieListTwo.hashCode());
+    }
+
+    @Test
+    public void shouldCheckIfAMovieDoesNotExistInAListOfMovies() {
+        movieList = new MovieList(movies);
+
+        assertFalse(movieList.checkExistence("Head First Java"));
+    }
+
+    @Test
+    public void shouldCheckIfAMovieExistInAListOfMovies() {
+        movieList = new MovieList(movies);
+
+        assertTrue(movieList.checkExistence("Movie1"));
     }
 }

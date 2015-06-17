@@ -170,5 +170,13 @@ public class MovieListTest {
 
         assertTrue(movieList.returnMovie("Movie1"));
     }
+
+    @Test
+    public void shouldNotBeAbleToReturnAMovieThatDoesNotExist() {
+        movieList = new MovieList(movies);
+
+        assertFalse(movieList.returnMovie("Movie5"));
+    }
+
 }
 

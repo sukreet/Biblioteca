@@ -123,4 +123,11 @@ public class MovieListTest {
 
         assertFalse(movieList.issueMovie("Movie11"));
     }
+
+    @Test
+    public void shouldCheckAvailabilityOfAnExistingMovieInAListOfMovies() {
+        movieList = new MovieList(movies);
+
+        assertTrue(movieList.checkAvailability("Movie1"));
+    }
 }

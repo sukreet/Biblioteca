@@ -53,4 +53,9 @@ public class MovieList implements MenuOperations {
         }
         return false;
     }
+
+    public boolean checkAvailability(String name) {
+
+        return true;
+    }
 }

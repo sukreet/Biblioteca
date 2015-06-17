@@ -28,5 +28,4 @@ public class CheckOut implements MenuOperations {
             return successFullCheckOutMsg;
         return unSuccessFullCheckOutMsg;
     }
-
 }

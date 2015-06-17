@@ -15,7 +15,7 @@ public class MovieList implements MenuOperations {
 
         String list = "";
         for (Movie movie : movies)
-                list += movie.toString() + System.lineSeparator();
+            list += movie.toString() + System.lineSeparator();
         return list;
     }
 
@@ -42,5 +42,15 @@ public class MovieList implements MenuOperations {
         }
         return false;
     }
-}
 
+
+    public boolean issueMovie(String name) {
+        for (Movie movie : movies) {
+            if (movie.checkNameIs(name)) {
+                movie.issueMovie();
+                return true;
+            }
+        }
+        return false;
+    }
+}

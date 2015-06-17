@@ -109,4 +109,18 @@ public class MovieListTest {
 
         assertTrue(movieList.checkExistence("Movie1"));
     }
+
+    @Test
+    public void shouldBeAbleToIssueAnExistingMovieFromAListOfMovies() {
+        movieList = new MovieList(movies);
+
+        assertTrue(movieList.issueMovie("Movie1"));
+    }
+
+    @Test
+    public void shouldNotIssueAMovieNotExistingInAListOfMovies() {
+        movieList = new MovieList(movies);
+
+        assertFalse(movieList.issueMovie("Movie11"));
+    }
 }

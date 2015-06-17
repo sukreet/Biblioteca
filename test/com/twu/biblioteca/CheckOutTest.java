@@ -21,7 +21,7 @@ public class CheckOutTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        ConsoleIO consoleIO =new ConsoleIO(bufferedReader);
+        ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         CheckOut checkout = new CheckOut(consoleIO, new BookList(list));
         String expected = checkout.action();
 
@@ -36,7 +36,7 @@ public class CheckOutTest {
         ArrayList<Book> list = new ArrayList<>();
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
-        ConsoleIO consoleIO =new ConsoleIO(bufferedReader);
+        ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         CheckOut checkout = new CheckOut(consoleIO, new BookList(list));
         String expected = checkout.action();
 

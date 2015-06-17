@@ -22,7 +22,7 @@ public class EntryPoint {
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         ReadMovieList readMovieList = new ReadMovieList("listOfMovies.txt");
         ArrayList<Movie> seedDataForMovies;
-        seedDataForMovies =readMovieList.readListOfMovies();
+        seedDataForMovies = readMovieList.readListOfMovies();
         MovieList movieList = new MovieList(seedDataForMovies);
         Menu menu = new Menu();
         Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOut, returnBook, movieList, menu);

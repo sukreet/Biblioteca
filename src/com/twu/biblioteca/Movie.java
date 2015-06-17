@@ -54,6 +54,6 @@ public class Movie {
     }
 
     public void issueMovie() {
-        this.isAvailable = false ;
+        this.isAvailable = false;
     }
 }

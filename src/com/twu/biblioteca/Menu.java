@@ -12,6 +12,7 @@ public class Menu {
         menuList.add("3 : Checkout Book");
         menuList.add("4 : Return Book");
         menuList.add("5 : List Of Movies");
+        menuList.add("6 : Check out Movie");
     }
 
     public int returnMenuSize() {

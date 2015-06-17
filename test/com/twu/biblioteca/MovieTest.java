@@ -5,9 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MovieTest {
 
@@ -98,5 +96,14 @@ public class MovieTest {
         Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
 
         assertTrue(movieOne.Availability());
+    }
+
+    @Test
+    public void shouldBeAbleToMakeAMovieUnAvailable() {
+        Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
+
+        movieOne.issueMovie();
+
+        assertFalse(movieOne.Availability());
     }
 }

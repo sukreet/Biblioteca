@@ -50,6 +50,10 @@ public class Movie {
     }
 
     public boolean Availability() {
-        return true;
+        return this.isAvailable;
+    }
+
+    public void issueMovie() {
+        this.isAvailable = false ;
     }
 }

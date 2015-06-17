@@ -55,7 +55,10 @@ public class MovieList implements MenuOperations {
     }
 
     public boolean checkAvailability(String name) {
-
-        return true;
+        for (Movie movie : movies) {
+            if (movie.checkNameIs(name))
+                return movie.Availability();
+        }
+        return false;
     }
 }

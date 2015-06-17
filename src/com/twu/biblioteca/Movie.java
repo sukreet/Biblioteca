@@ -49,11 +49,15 @@ public class Movie {
         return name.equals(this.name);
     }
 
-    public boolean Availability() {
+    public boolean checkAvailability() {
         return this.isAvailable;
     }
 
     public void issueMovie() {
         this.isAvailable = false;
+    }
+
+    public void returnMovie() {
+        this.isAvailable = true;
     }
 }

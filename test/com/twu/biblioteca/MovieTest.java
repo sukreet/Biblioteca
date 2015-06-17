@@ -95,7 +95,7 @@ public class MovieTest {
     public void shouldBeAbleToCheckIfMovieIsAvailable() {
         Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
 
-        assertTrue(movieOne.Availability());
+        assertTrue(movieOne.checkAvailability());
     }
 
     @Test
@@ -104,6 +104,17 @@ public class MovieTest {
 
         movieOne.issueMovie();
 
-        assertFalse(movieOne.Availability());
+        assertFalse(movieOne.checkAvailability());
     }
+
+    @Test
+    public void shouldBeAbleToMakeAMovieAvailableWhenReturned() {
+        Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
+
+        movieOne.issueMovie();
+        movieOne.returnMovie();
+
+        assertTrue(movieOne.checkAvailability());
+    }
+
 }

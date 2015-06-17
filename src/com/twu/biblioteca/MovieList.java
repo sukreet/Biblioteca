@@ -15,7 +15,7 @@ public class MovieList implements MenuOperations {
 
         String list = "";
         for (Movie movie : movies) {
-            if (movie.Availability())
+            if (movie.checkAvailability())
                 list += movie.toString() + System.lineSeparator();
         }
         return list;
@@ -48,7 +48,7 @@ public class MovieList implements MenuOperations {
 
     public boolean issueMovie(String name) {
         for (Movie movie : movies) {
-            if (movie.checkNameIs(name) && movie.Availability()) {
+            if (movie.checkNameIs(name) && movie.checkAvailability()) {
                 movie.issueMovie();
                 return true;
             }
@@ -59,7 +59,7 @@ public class MovieList implements MenuOperations {
     public boolean checkAvailability(String name) {
         for (Movie movie : movies) {
             if (movie.checkNameIs(name))
-                return movie.Availability();
+                return movie.checkAvailability();
         }
         return false;
     }

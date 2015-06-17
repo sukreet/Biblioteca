@@ -33,5 +33,19 @@ public class ReturnMovieTest {
 
         assertThat(expected, is("That is not a valid movie to return\n"));
     }
-    
+
+
+    @Test
+    public void shouldGiveProperMsgWhenEnteredMovieIsReturnedCorrectly() throws IOException {
+
+        ConsoleIO consoleIO = mock(ConsoleIO.class);
+        when(consoleIO.read()).thenReturn("Movie1");
+        movieList = new MovieList(movies);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
+
+        String expected = returnMovie.action();
+
+        assertThat(expected, is("Thank you for returning the movie.\n"));
+    }
+
 }

@@ -24,7 +24,7 @@ public class ReturnMovie implements MenuOperations {
             e.printStackTrace();
         }
         if(movieList.returnMovie(name))
-            return unSuccessfulReturnMsg;
-        return successfulReturnMsg;
+            return successfulReturnMsg;
+        return unSuccessfulReturnMsg;
     }
 }

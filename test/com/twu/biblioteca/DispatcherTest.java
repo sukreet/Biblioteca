@@ -30,11 +30,11 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
     }
 
@@ -87,7 +87,9 @@ public class DispatcherTest {
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
+        ReturnMovie returnMovie = mock(ReturnMovie.class);
+
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
         String actualOutput = dispatcher.computeMenuOption(3);
         String expectedOutput = "That book is not available.\n";
@@ -113,7 +115,9 @@ public class DispatcherTest {
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
+        ReturnMovie returnMovie = mock(ReturnMovie.class);
+
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
         String actualOutput = dispatcher.computeMenuOption(4);
         String expectedOutput = "That is not a valid book to return\n";
@@ -135,10 +139,33 @@ public class DispatcherTest {
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
+        ReturnMovie returnMovie = mock(ReturnMovie.class);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
         String actualOutput = dispatcher.computeMenuOption(6);
         String expectedOutput = "Thank you! Enjoy the movie.\n";
+
+        assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void shouldCallReturnMovieActionWhenUserGivesSeven() throws IOException {
+        BookList bookList = mock(BookList.class);
+        ConsoleIO consoleIO = mock(ConsoleIO.class);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
+        movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
+        MovieList movieList = new MovieList(movies);
+        when(consoleIO.read()).thenReturn("Movie1");
+        CheckOutBook checkOutBook = mock(CheckOutBook.class);
+        ReturnBook returnBook = mock(ReturnBook.class);
+        Menu menu = new Menu();
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
+
+        String actualOutput = dispatcher.computeMenuOption(7);
+        String expectedOutput = "That is not a valid movie to return\n";
 
         assertThat(actualOutput, is(expectedOutput));
     }

@@ -37,9 +37,10 @@ public class AppTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
         Menu menu = new Menu();
 
-        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
+        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
         app = new App(dispatcher, menu, consoleIO);
 
     }

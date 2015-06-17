@@ -1,0 +1,26 @@
+package com.twu.biblioteca;
+
+import java.io.IOException;
+
+public class ReturnMovie implements MenuOperations {
+    private ConsoleIO consoleIO;
+    private MovieList movieList;
+    private String unSuccessfulReturnMsg;
+    private String name;
+
+    public ReturnMovie(ConsoleIO consoleIO, MovieList movieList) {
+        this.consoleIO = consoleIO;
+        this.movieList = movieList;
+        unSuccessfulReturnMsg = "That is not a valid movie to return\n";
+    }
+
+    @Override
+    public String action() {
+        try {
+            name = consoleIO.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+            return unSuccessfulReturnMsg;
+    }
+}

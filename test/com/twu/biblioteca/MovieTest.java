@@ -92,4 +92,11 @@ public class MovieTest {
         assertTrue(movieOne.checkNameIs("Movie Name"));
 
     }
+
+    @Test
+    public void shouldBeAbleToCheckIfMovieIsAvailable() {
+        Movie movieOne = new Movie("Movie Name", "Director Mane", 1999, "7/10");
+
+        assertTrue(movieOne.Availability());
+    }
 }

@@ -44,8 +44,12 @@ public class Movie {
         result = 31 * result + rating.hashCode();
         return result;
     }
+
     public boolean checkNameIs(String name) {
         return name.equals(this.name);
     }
 
+    public boolean Availability() {
+        return true;
+    }
 }

@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+import static java.lang.Character.isDigit;
+
 public class ConsoleIO {
     BufferedReader bufferedReader;
 
@@ -12,8 +14,9 @@ public class ConsoleIO {
 
     public int readInt() throws IOException {
         String st = bufferedReader.readLine();
-        return Integer.parseInt(st);
-
+        if (st.length() == 1 && isDigit(st.charAt(0)) )
+            return Integer.parseInt(st);
+        return 0;
     }
 
     public String read() throws IOException {

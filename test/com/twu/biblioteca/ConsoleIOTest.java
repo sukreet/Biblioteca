@@ -52,4 +52,15 @@ public class ConsoleIOTest {
         assertEquals(outputStream.toString(), "hola");
 
     }
+
+
+    @Test
+    public void shouldReturnZeroIfInputIsNotCorrect() throws IOException {
+
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn("q");
+        consoleIO = new ConsoleIO(bufferedReader);
+
+        assertEquals(consoleIO.readInt(), 0);
+    }
 }

@@ -25,7 +25,8 @@ public class EntryPoint {
         seedDataForMovies = readMovieList.readListOfMovies();
         MovieList movieList = new MovieList(seedDataForMovies);
         Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, menu);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, menu);
 
         App app = new App(dispatcher, menu, consoleIO);
         app.start();

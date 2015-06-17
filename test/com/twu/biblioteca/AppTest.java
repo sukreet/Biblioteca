@@ -36,9 +36,10 @@ public class AppTest {
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
-
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
         Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, menu);
+
+        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, menu);
         app = new App(dispatcher, menu, consoleIO);
 
     }
@@ -62,8 +63,8 @@ public class AppTest {
                 "2 : Quit" + System.lineSeparator() +
                 "3 : Checkout Book" + System.lineSeparator() +
                 "4 : Return Book" + System.lineSeparator() +
-                "5 : List Of Movies" + System.lineSeparator();
-        ;
+                "5 : List Of Movies" + System.lineSeparator() +
+                "6 : Check out Movie" + System.lineSeparator();
 
 
         assertEquals(expectedMenuFormat, outputStream.toString());

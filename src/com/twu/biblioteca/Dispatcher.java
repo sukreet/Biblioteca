@@ -7,13 +7,15 @@ public class Dispatcher {
     private HashMap<Integer, MenuOperations> map = new HashMap<Integer, MenuOperations>();
     Menu menu;
 
-    public Dispatcher(BookList bookList, Quit quit, CheckOutBook checkout, ReturnBook returnBook, MovieList movieList, Menu menu) {
+    public Dispatcher(BookList bookList, Quit quit, CheckOutBook checkoutBook, ReturnBook returnBook, MovieList movieList,CheckOutMovies checkOutMovies,
+                      Menu menu) {
         this.menu = menu;
         map.put(1, bookList);
         map.put(2, quit);
-        map.put(3, checkout);
+        map.put(3, checkoutBook);
         map.put(4, returnBook);
         map.put(5, movieList);
+        map.put(6, checkOutMovies);
     }
 
     public String computeMenuOption(int optionNumber) {

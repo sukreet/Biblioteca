@@ -178,5 +178,12 @@ public class MovieListTest {
         assertFalse(movieList.returnMovie("Movie5"));
     }
 
+    @Test
+    public void shouldNotBeAbleToReturnAMovieThatHasNotBeenCheckedOutFirst() {
+        movieList = new MovieList(movies);
+
+        assertFalse(movieList.returnMovie("Movie1"));
+    }
+
 }
 

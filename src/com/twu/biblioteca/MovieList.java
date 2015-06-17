@@ -14,8 +14,10 @@ public class MovieList implements MenuOperations {
     public String action() {
 
         String list = "";
-        for (Movie movie : movies)
-            list += movie.toString() + System.lineSeparator();
+        for (Movie movie : movies) {
+            if (movie.Availability())
+                list += movie.toString() + System.lineSeparator();
+        }
         return list;
     }
 

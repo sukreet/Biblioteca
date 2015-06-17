@@ -21,7 +21,7 @@ public class MovieListTest {
 
 
     @Test
-    public void shouldDisplayBookListInDetailsInProperFormat() {
+    public void shouldDisplayMovieListInDetailsInProperFormat() {
         movieList = new MovieList(movies);
         String expectedFormat = movieList.action();
         String actualFormat = String.format("%-40s", "Movie1") + String.format("%-40s", "Director1") +
@@ -150,4 +150,18 @@ public class MovieListTest {
         assertFalse(movieList.issueMovie("Movie1"));
 
     }
+    @Test
+    public void shouldDisplayOnlyAvailableMovies() {
+        movieList = new MovieList(movies);
+
+        movieList.issueMovie("Movie2");
+        String actualFormat = movieList.action();
+        String expectedFormat = String.format("%-40s", "Movie1") + String.format("%-40s", "Director1") +
+                String.format("%-40s", 1999) + String.format("%-40s", "7/10") + System.lineSeparator();
+
+        assertEquals(expectedFormat, actualFormat);
+
+    }
+
 }
+

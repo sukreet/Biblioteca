@@ -39,10 +39,10 @@ public class ReturnBookTest {
         list.add(new Book("Learning C", "John", 2000));
         BookList bookList = new BookList(list);
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
-        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
 
-        checkOut.action();
+        checkOutBook.action();
         String expected = returnBook.action();
 
 

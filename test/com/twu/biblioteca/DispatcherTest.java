@@ -31,10 +31,10 @@ public class DispatcherTest {
         MovieList movieList = new MovieList(movies);
 
 
-        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, menu);
 
     }
 
@@ -83,10 +83,10 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
-        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, menu);
 
         String actualOutput = dispatcher.computeMenuOption(3);
         String expectedOutput = "That book is not available.\n";
@@ -108,10 +108,10 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
-        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
-        dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+        dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, menu);
 
         String actualOutput = dispatcher.computeMenuOption(4);
         String expectedOutput = "That is not a valid book to return\n";

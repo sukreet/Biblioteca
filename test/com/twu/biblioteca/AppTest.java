@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.when;
 
 
@@ -31,7 +30,7 @@ public class AppTest {
         list.add(new Book("Learning C", "John", 2000));
         BookList bookList = new BookList(list);
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
-        CheckOut checkOut = new CheckOut(consoleIO, bookList);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
@@ -39,7 +38,7 @@ public class AppTest {
         MovieList movieList = new MovieList(movies);
 
         Menu menu = new Menu();
-        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOut, returnBook, movieList, menu);
+        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, menu);
         app = new App(dispatcher, menu, consoleIO);
 
     }

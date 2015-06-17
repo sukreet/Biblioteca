@@ -30,7 +30,6 @@ public class MovieListTest {
                 String.format("%-40s", 1998) + String.format("%-40s", "unrated") + System.lineSeparator();
 
         assertEquals(expectedFormat, actualFormat);
-
     }
 
     @Test
@@ -142,14 +141,14 @@ public class MovieListTest {
 
 
     @Test
-    public void shouldNotCheckOutTheSameBookTwice() {
+    public void shouldNotCheckOutTheSameMovieTwice() {
         movieList = new MovieList(movies);
 
         movieList.issueMovie("Movie1");
 
         assertFalse(movieList.issueMovie("Movie1"));
-
     }
+
     @Test
     public void shouldDisplayOnlyAvailableMovies() {
         movieList = new MovieList(movies);
@@ -163,5 +162,13 @@ public class MovieListTest {
 
     }
 
+    @Test
+    public void shouldBeAbleToReturnAnExistingMovieAfterItWasCheckedOut() {
+        movieList = new MovieList(movies);
+
+        movieList.issueMovie("Movie1");
+
+        assertTrue(movieList.returnMovie("Movie1"));
+    }
 }
 

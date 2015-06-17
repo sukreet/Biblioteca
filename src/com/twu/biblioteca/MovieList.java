@@ -63,4 +63,12 @@ public class MovieList implements MenuOperations {
         }
         return false;
     }
+
+    public boolean returnMovie(String name) {
+        for (Movie movie : movies) {
+            if (movie.checkNameIs(name))
+                movie.returnMovie();
+        }
+        return true;
+    }
 }

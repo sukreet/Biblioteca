@@ -35,4 +35,18 @@ public class CheckOutMoviesTest {
         assertThat(expected, is("That movie is not available.\n"));
     }
 
+    @Test
+    public void shouldGiveProperMsgWhenEnteredMovieIsAvailable() throws IOException {
+
+        ConsoleIO consoleIO = mock(ConsoleIO.class);
+        when(consoleIO.read()).thenReturn("Movie1");
+        movieList = new MovieList(movies);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+
+        String expected = checkOutMovies.action();
+
+        assertThat(expected, is("Thank you! Enjoy the movie.\n"));
+    }
+
+
 }

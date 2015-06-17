@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.IOException;
 
 public class CheckOutMovies implements MenuOperations {
+    private String successFullCheckOutMsg;
     private String unSuccessFullCheckOutMsg;
     private MovieList movieList;
     private String name;
@@ -10,6 +11,7 @@ public class CheckOutMovies implements MenuOperations {
 
     public CheckOutMovies(ConsoleIO consoleIO, MovieList movieList) {
         this.consoleIO = consoleIO;
+        successFullCheckOutMsg = "Thank you! Enjoy the movie.\n";
         unSuccessFullCheckOutMsg = "That movie is not available.\n";
         this.movieList = movieList;
 
@@ -22,7 +24,8 @@ public class CheckOutMovies implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        movieList.issueMovie(name);
-        return  unSuccessFullCheckOutMsg;
+        if (movieList.issueMovie(name))
+            return successFullCheckOutMsg;
+        return unSuccessFullCheckOutMsg;
     }
 }

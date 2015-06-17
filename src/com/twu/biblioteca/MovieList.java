@@ -46,7 +46,7 @@ public class MovieList implements MenuOperations {
 
     public boolean issueMovie(String name) {
         for (Movie movie : movies) {
-            if (movie.checkNameIs(name)) {
+            if (movie.checkNameIs(name) && movie.Availability()) {
                 movie.issueMovie();
                 return true;
             }

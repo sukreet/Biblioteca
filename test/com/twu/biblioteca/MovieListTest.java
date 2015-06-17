@@ -134,9 +134,20 @@ public class MovieListTest {
     @Test
     public void shouldCheckAvailabilityOfAnExistingMovieInAListOfMoviesAfterItIsIssued() {
         movieList = new MovieList(movies);
+
         movieList.issueMovie("Movie1");
+
         assertFalse(movieList.checkAvailability("Movie1"));
     }
 
 
+    @Test
+    public void shouldNotCheckOutTheSameBookTwice() {
+        movieList = new MovieList(movies);
+
+        movieList.issueMovie("Movie1");
+
+        assertFalse(movieList.issueMovie("Movie1"));
+
+    }
 }

@@ -40,7 +40,7 @@ public class EntryPoint {
                 CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser);
                 ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
                 CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-                ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
+                ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
                 Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
                 App app = new App(dispatcher, menu, consoleIO);
                 app.start();

@@ -8,12 +8,14 @@ public class ReturnMovie implements MenuOperations {
     private String unSuccessfulReturnMsg;
     private String successfulReturnMsg;
     private String name;
+    private User authorisedUser;
 
-    public ReturnMovie(ConsoleIO consoleIO, MovieList movieList) {
+    public ReturnMovie(ConsoleIO consoleIO, MovieList movieList, User authorisedUser) {
         this.consoleIO = consoleIO;
         this.movieList = movieList;
         unSuccessfulReturnMsg = "That is not a valid movie to return\n";
         successfulReturnMsg = "Thank you for returning the movie.\n";
+        this.authorisedUser = authorisedUser;
     }
 
     @Override
@@ -23,7 +25,7 @@ public class ReturnMovie implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(movieList.returnMovie(name))
+        if (movieList.returnMovie(name))
             return successfulReturnMsg;
         return unSuccessfulReturnMsg;
     }

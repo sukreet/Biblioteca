@@ -29,9 +29,9 @@ public class DispatcherTest {
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
@@ -161,11 +161,12 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("Movie1");
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
         CheckOutBook checkOutBook = mock(CheckOutBook.class);
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
         String actualOutput = dispatcher.computeMenuOption(7);

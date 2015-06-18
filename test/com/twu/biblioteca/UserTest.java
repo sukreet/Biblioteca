@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -67,6 +68,16 @@ public class UserTest {
         User userTwo = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
 
         assertEquals(userOne.hashCode(), userTwo.hashCode());
+    }
+
+    @Test
+    public void ShouldreturnNullWhenInvalidCredentialsArePassed() {
+        User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+
+        User userTwo = userOne.validate("123-1234", "password");
+
+        assertThat(userTwo, equalTo(null));
+        
     }
 
 }

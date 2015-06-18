@@ -42,4 +42,8 @@ public class User {
         result = 31 * result + (isLibraian ? 1 : 0);
         return result;
     }
+
+    public User validate(String name, String password) {
+        return null;
+    }
 }

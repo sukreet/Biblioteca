@@ -28,7 +28,8 @@ public class CheckOutMoviesTest {
         ConsoleIO consoleIO = mock(ConsoleIO.class);
         when(consoleIO.read()).thenReturn("Good");
         movieList = new MovieList(movies);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
 
         String expected = checkOutMovies.action();
 
@@ -41,7 +42,8 @@ public class CheckOutMoviesTest {
         ConsoleIO consoleIO = mock(ConsoleIO.class);
         when(consoleIO.read()).thenReturn("Movie1");
         movieList = new MovieList(movies);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
 
         String expected = checkOutMovies.action();
 

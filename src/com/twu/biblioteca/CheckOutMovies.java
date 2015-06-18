@@ -8,12 +8,14 @@ public class CheckOutMovies implements MenuOperations {
     private MovieList movieList;
     private String name;
     private ConsoleIO consoleIO;
+    private User authorisedUser;
 
-    public CheckOutMovies(ConsoleIO consoleIO, MovieList movieList) {
+    public CheckOutMovies(ConsoleIO consoleIO, MovieList movieList, User authorisedUser) {
         this.consoleIO = consoleIO;
         successFullCheckOutMsg = "Thank you! Enjoy the movie.\n";
         unSuccessFullCheckOutMsg = "That movie is not available.\n";
         this.movieList = movieList;
+        this.authorisedUser = authorisedUser;
 
     }
 

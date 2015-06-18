@@ -37,7 +37,7 @@ public class AppTest {
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         Menu menu = new Menu();
 

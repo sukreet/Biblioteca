@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -30,7 +31,7 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
@@ -89,7 +90,7 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
 
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
@@ -118,7 +119,7 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
 
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
@@ -142,7 +143,8 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = mock(CheckOutBook.class);
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
@@ -165,7 +167,7 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = mock(CheckOutBook.class);
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList,authorisedUser);
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 

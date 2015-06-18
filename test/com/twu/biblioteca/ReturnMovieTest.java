@@ -43,9 +43,8 @@ public class ReturnMovieTest {
         when(consoleIO.read()).thenReturn("Movie1");
         movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
         checkOutMovies.action();
         String expected = returnMovie.action();
 

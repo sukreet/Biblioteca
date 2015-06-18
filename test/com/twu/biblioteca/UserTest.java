@@ -82,7 +82,15 @@ public class UserTest {
         User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
 
         assertTrue(userOne.validate("111-1111", "password"));
-
-
     }
+
+
+    @Test
+    public void checkIfAnUserIsALibrarian() {
+        User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", true);
+
+        assertTrue(userOne.userIsLibrarian());
+    }
+
+
 }

@@ -52,4 +52,8 @@ public class User {
 
         return false;
     }
+
+    public boolean userIsLibrarian() {
+        return this.isLibraian;
+    }
 }

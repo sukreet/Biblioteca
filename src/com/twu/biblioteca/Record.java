@@ -17,4 +17,8 @@ public class Record {
                 String.format("%-40s", itemName) +
                 String.format("%-40s", itemType));
     }
+
+    public boolean match(String name, String itemType) {
+        return false;
+    }
 }

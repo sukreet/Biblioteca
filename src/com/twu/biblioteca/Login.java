@@ -10,7 +10,10 @@ public class Login {
     }
 
     public User authoriseUser(String libraryID, String password) {
-
+        for (User user : userList) {
+            if (user.validate(libraryID, password))
+                return user;
+        }
         return null;
     }
 }

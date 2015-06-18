@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class RecordTest {
 
@@ -24,6 +25,14 @@ public class RecordTest {
         Record record = new Record("Sukreet", "Macbeth", "Book");
 
         assertFalse(record.match("Sukreet", "Movie"));
+    }
+
+
+    @Test
+    public void shouldReturnTrueIfValidNameAndTypeIsPassed() {
+        Record record = new Record("Sukreet", "Macbeth", "Book");
+
+        assertTrue(record.match("Macbeth", "Book"));
     }
 
 }

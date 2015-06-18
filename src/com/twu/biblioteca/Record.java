@@ -19,6 +19,8 @@ public class Record {
     }
 
     public boolean match(String name, String itemType) {
+        if (name.equals(this.itemName) && itemType.equals(this.itemType))
+            return true;
         return false;
     }
 }

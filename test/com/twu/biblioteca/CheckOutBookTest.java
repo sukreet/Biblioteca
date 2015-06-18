@@ -22,7 +22,9 @@ public class CheckOutBookTest {
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
-        CheckOutBook checkout = new CheckOutBook(consoleIO, new BookList(list));
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+
+        CheckOutBook checkout = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         String expected = checkout.action();
 
         assertThat(expected, is("That book is not available.\n"));
@@ -37,7 +39,10 @@ public class CheckOutBookTest {
         list.add(new Book("Head First Java", "Kathy", 1995));
         list.add(new Book("Learning C", "John", 2000));
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
-        CheckOutBook checkout = new CheckOutBook(consoleIO, new BookList(list));
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+
+        CheckOutBook checkout = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
+
         String expected = checkout.action();
 
         assertThat(expected, is("Thank you! Enjoy the book.\n"));

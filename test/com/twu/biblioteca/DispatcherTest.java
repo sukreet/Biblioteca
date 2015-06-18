@@ -31,7 +31,8 @@ public class DispatcherTest {
         MovieList movieList = new MovieList(movies);
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
@@ -83,7 +84,9 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
+
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
@@ -111,7 +114,8 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList);
+        User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
         ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);

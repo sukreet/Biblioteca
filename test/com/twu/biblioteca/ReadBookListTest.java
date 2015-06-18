@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class FileHandlerTest {
+public class ReadBookListTest {
     @Test
     public void shouldReadListOfAvailableBooks() throws IOException {
         String testFileName = "listOfBooks.txt";
-        FileHandler readBooks = new FileHandler(testFileName);
+        ReadBookList readBooks = new ReadBookList(testFileName);
         ArrayList<Book> actualListOfBooks = readBooks.readListOfBooks();
         ArrayList<Book> expectedListOfBooks = new ArrayList<>();
 

@@ -13,8 +13,8 @@ public class EntryPoint {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(isr);
         ArrayList<Book> seedDataForBooks;
-        FileHandler fileHandler = new FileHandler("listOfBooks.txt");
-        seedDataForBooks = fileHandler.readListOfBooks();
+        ReadBookList readBookList = new ReadBookList("listOfBooks.txt");
+        seedDataForBooks = readBookList.readListOfBooks();
         BookList bookList = new BookList(seedDataForBooks);
         Quit quit = new Quit();
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);

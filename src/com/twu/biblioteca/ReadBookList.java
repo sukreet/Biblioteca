@@ -6,10 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FileHandler {
+public class ReadBookList {
     String fileName;
 
-    public FileHandler(String fileName) {
+    public ReadBookList(String fileName) {
         this.fileName = fileName;
     }
 

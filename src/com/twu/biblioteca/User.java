@@ -13,6 +13,7 @@ public class User {
         this.libraryID = libraryID;
         this.phoneNo = phoneNo;
         this.password = password;
+        this.emaidID=emaidID;
         this.isLibraian = isLibraian;
     }
 
@@ -43,7 +44,12 @@ public class User {
         return result;
     }
 
-    public User validate(String name, String password) {
-        return null;
+    public boolean validate(String libraryID, String password) {
+
+        if (libraryID.equals(this.libraryID) && password.equals(this.password)) {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -5,8 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class UserTest {
 
@@ -71,13 +70,19 @@ public class UserTest {
     }
 
     @Test
-    public void ShouldreturnNullWhenInvalidCredentialsArePassed() {
+    public void shouldReturnFalseWhenInvalidCredentialsArePassed() {
         User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
 
-        User userTwo = userOne.validate("123-1234", "password");
+        assertFalse(userOne.validate("123-1111", "password"));
 
-        assertThat(userTwo, equalTo(null));
-        
     }
 
+    @Test
+    public void shouldReturnTrueWhenValidCredentialsArePassed() {
+        User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
+
+        assertTrue(userOne.validate("111-1111", "password"));
+
+
+    }
 }

@@ -9,12 +9,14 @@ public class ReturnBook implements MenuOperations {
     private BookList bookList;
     private String name;
     private ConsoleIO consoleIO;
+    private User authorisedUser;
 
-    public ReturnBook(ConsoleIO consoleIO, BookList bookList) {
+    public ReturnBook(ConsoleIO consoleIO, BookList bookList, User authorisedUser) {
         this.consoleIO = consoleIO;
         successFullBookReturntMsg = "Thank you for returning the book.\n";
         unSuccessFullBookReturnMsg = "That is not a valid book to return\n";
         this.bookList = bookList;
+        this.authorisedUser = authorisedUser;
     }
 
     @Override

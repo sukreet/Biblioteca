@@ -32,7 +32,7 @@ public class AppTest {
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));

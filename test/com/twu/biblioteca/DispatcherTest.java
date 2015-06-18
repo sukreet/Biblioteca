@@ -33,7 +33,7 @@ public class DispatcherTest {
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         Menu menu = new Menu();
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
@@ -87,7 +87,7 @@ public class DispatcherTest {
 
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
@@ -116,7 +116,7 @@ public class DispatcherTest {
         when(consoleIO.read()).thenReturn("book1");
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
         CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
         Menu menu = new Menu();
         CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
         ReturnMovie returnMovie = mock(ReturnMovie.class);

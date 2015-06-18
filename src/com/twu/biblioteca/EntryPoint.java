@@ -38,7 +38,7 @@ public class EntryPoint {
             authorisedUser = login.authoriseUser(libraryID, password);
             if (authorisedUser != null) {
                 CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser);
-                ReturnBook returnBook = new ReturnBook(consoleIO, bookList);
+                ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
                 CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList);
                 ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
                 Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);

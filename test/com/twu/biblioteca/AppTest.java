@@ -42,7 +42,7 @@ public class AppTest {
         ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
         Menu menu = new Menu();
 
-        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
+        Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu, authorisedUser);
         app = new App(dispatcher, menu, consoleIO);
 
     }

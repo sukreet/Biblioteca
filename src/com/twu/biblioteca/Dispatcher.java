@@ -8,7 +8,7 @@ public class Dispatcher {
     Menu menu;
 
     public Dispatcher(BookList bookList, Quit quit, CheckOutBook checkoutBook, ReturnBook returnBook, MovieList movieList, CheckOutMovies checkOutMovies,
-                      ReturnMovie returnMovie, Menu menu) {
+                      ReturnMovie returnMovie, Menu menu, User authorisedUser) {
         this.menu = menu;
         map.put(1, bookList);
         map.put(2, quit);
@@ -17,7 +17,9 @@ public class Dispatcher {
         map.put(5, movieList);
         map.put(6, checkOutMovies);
         map.put(7, returnMovie);
+        map.put(8, authorisedUser);
     }
+
 
     public String computeMenuOption(int optionNumber) {
         if (optionNumber > menu.returnMenuSize() || optionNumber <= 0)

@@ -49,7 +49,7 @@ public class EntryPoint {
                 ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
                 CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
                 ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
-                Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
+                Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu, authorisedUser);
                 App app = new App(dispatcher, menu, consoleIO);
                 app.start();
             }

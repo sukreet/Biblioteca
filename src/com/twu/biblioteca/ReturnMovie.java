@@ -27,8 +27,9 @@ public class ReturnMovie implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (movieList.returnMovie(name))
+        if (movieList.returnMovie(name)) {
             return successfulReturnMsg;
+        }
         return unSuccessfulReturnMsg;
     }
 }

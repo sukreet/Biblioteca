@@ -28,8 +28,10 @@ public class CheckOutMovies implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (movieList.issueMovie(name))
+        if (movieList.issueMovie(name)) {
+            history.addRecord(authorisedUser.nameOfUser(),name,"Movie");
             return successFullCheckOutMsg;
+        }
         return unSuccessFullCheckOutMsg;
     }
 }

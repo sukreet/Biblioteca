@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class History {
-    private ArrayList<Record> records;
+    private static ArrayList<Record> records;
 
     public History() {
         records = new ArrayList<>();

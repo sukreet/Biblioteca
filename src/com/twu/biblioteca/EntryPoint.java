@@ -26,8 +26,8 @@ public class EntryPoint {
         History history = new History();
         User authorisedUser;
         ArrayList<User> userList = new ArrayList<>();
-        userList.add(new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false));
-        userList.add(new User("Name", "000-0000", "930127876", "as1@gmail.com", "password", true));
+        userList.add(new User("sukreet", "111-1111", "930129876", "src@gmail.com", "password", false));
+        userList.add(new User("librarian", "000-0000", "930127876", "as1@gmail.com", "password", true));
 
         while (true) {
             Login login = new Login(userList);
@@ -37,6 +37,8 @@ public class EntryPoint {
                 System.exit(0);
             String password = consoleIO.read();
             authorisedUser = login.authoriseUser(libraryID, password);
+            if (authorisedUser.userIsLibrarian())
+                consoleIO.display(history.show());
             if (authorisedUser != null) {
                 CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser, history);
                 ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);

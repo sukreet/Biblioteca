@@ -29,8 +29,10 @@ public class CheckOutBook implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (bookList.issueBook(name))
+        if (bookList.issueBook(name)) {
+            history.addRecord(authorisedUser.nameOfUser(),name,"Book");
             return successFullCheckOutMsg;
+        }
         return unSuccessFullCheckOutMsg;
     }
 }

@@ -29,8 +29,9 @@ public class ReturnBook implements MenuOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (bookList.returnBook(name))
+        if (bookList.returnBook(name)) {
             return successFullBookReturntMsg;
+        }
         return unSuccessFullBookReturnMsg;
     }
 

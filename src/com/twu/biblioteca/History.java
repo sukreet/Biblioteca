@@ -9,8 +9,19 @@ public class History {
         records = new ArrayList<>();
     }
 
+
+    public void addRecord(String userName, String itemName, String itemType) {
+        records.add(new Record(userName, itemName, itemType));
+    }
+
     public String show() {
-        return "No records to show\n";
+        if (records.size() == 0)
+            return "No records to show\n";
+        String list = "";
+        for (Record record : records) {
+            list += record.toString() + System.lineSeparator();
+        }
+        return list;
 
     }
 

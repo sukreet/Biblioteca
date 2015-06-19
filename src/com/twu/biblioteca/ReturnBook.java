@@ -30,6 +30,7 @@ public class ReturnBook implements MenuOperations {
             e.printStackTrace();
         }
         if (bookList.returnBook(name)) {
+            history.removeRecord(name, "Book");
             return successFullBookReturntMsg;
         }
         return unSuccessFullBookReturnMsg;

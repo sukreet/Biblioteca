@@ -26,10 +26,13 @@ public class History {
     }
 
     public void removeRecord(String itemName, String itemType) {
+        Record toRemove = new Record("", "","");
         for (Record record : records) {
             if (record.match(itemName, itemType))
-                records.remove(record);
+                toRemove = record;
         }
+        records.remove(toRemove);
+
 
     }
 }

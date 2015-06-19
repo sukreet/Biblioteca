@@ -103,5 +103,17 @@ public class UserTest {
         assertThat(actualName, is(expectedName));
     }
 
+    @Test
+    public void shouldReturnUserDetailInCorrectFormat() {
+        User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", true);
+
+        String actualName = userOne.action();
+        String expectedName = "111-1111\tName\t930129876\tasd@gmail.com\n";
+
+        assertThat(actualName, is(expectedName));
+    }
+
 
 }
+
+

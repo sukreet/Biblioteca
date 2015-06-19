@@ -1,20 +1,20 @@
 package com.twu.biblioteca;
 
-public class User {
+public class User implements  MenuOperations{
     private String name;
     private String libraryID;
     private String phoneNo;
-    private String emaidID;
+    private String emailID;
     private String password;
-    private boolean isLibraian;
+    private boolean isLibrarian;
 
-    public User(String name, String libraryID, String phoneNo, String emaidID, String password, boolean isLibraian) {
+    public User(String name, String libraryID, String phoneNo, String emailID, String password, boolean isLibrarian) {
         this.name = name;
         this.libraryID = libraryID;
         this.phoneNo = phoneNo;
         this.password = password;
-        this.emaidID = emaidID;
-        this.isLibraian = isLibraian;
+        this.emailID = emailID;
+        this.isLibrarian = isLibrarian;
     }
 
     @Override
@@ -24,11 +24,11 @@ public class User {
 
         User user = (User) o;
 
-        if (isLibraian != user.isLibraian) return false;
+        if (isLibrarian != user.isLibrarian) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (libraryID != null ? !libraryID.equals(user.libraryID) : user.libraryID != null) return false;
         if (phoneNo != null ? !phoneNo.equals(user.phoneNo) : user.phoneNo != null) return false;
-        if (emaidID != null ? !emaidID.equals(user.emaidID) : user.emaidID != null) return false;
+        if (emailID != null ? !emailID.equals(user.emailID) : user.emailID != null) return false;
         return !(password != null ? !password.equals(user.password) : user.password != null);
 
     }
@@ -38,9 +38,9 @@ public class User {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (libraryID != null ? libraryID.hashCode() : 0);
         result = 31 * result + (phoneNo != null ? phoneNo.hashCode() : 0);
-        result = 31 * result + (emaidID != null ? emaidID.hashCode() : 0);
+        result = 31 * result + (emailID != null ? emailID.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (isLibraian ? 1 : 0);
+        result = 31 * result + (isLibrarian ? 1 : 0);
         return result;
     }
 
@@ -54,10 +54,15 @@ public class User {
     }
 
     public boolean userIsLibrarian() {
-        return this.isLibraian;
+        return this.isLibrarian;
     }
 
     public String nameOfUser() {
         return name;
+    }
+
+    @Override
+    public String action() {
+        return libraryID + '\t' + name + '\t' + phoneNo + '\t' + emailID + '\n';
     }
 }

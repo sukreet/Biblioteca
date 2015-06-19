@@ -56,4 +56,8 @@ public class User {
     public boolean userIsLibrarian() {
         return this.isLibraian;
     }
+
+    public String nameOfUser() {
+        return name;
+    }
 }

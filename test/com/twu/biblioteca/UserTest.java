@@ -93,4 +93,15 @@ public class UserTest {
     }
 
 
+    @Test
+    public void shouldGetNameOfUserCorrectly() {
+        User userOne = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", true);
+
+        String actualName = userOne.nameOfUser();
+        String expectedName = "Name";
+
+        assertThat(actualName, is(expectedName));
+    }
+
+
 }

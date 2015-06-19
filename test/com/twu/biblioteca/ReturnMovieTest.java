@@ -28,7 +28,8 @@ public class ReturnMovieTest {
         when(consoleIO.read()).thenReturn("Good");
         movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
+        History history = new History();
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
 
         String expected = returnMovie.action();
 
@@ -43,8 +44,9 @@ public class ReturnMovieTest {
         when(consoleIO.read()).thenReturn("Movie1");
         movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        History history = new History();
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
         checkOutMovies.action();
         String expected = returnMovie.action();
 

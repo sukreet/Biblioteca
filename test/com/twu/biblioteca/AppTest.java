@@ -31,14 +31,15 @@ public class AppTest {
         BookList bookList = new BookList(list);
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
+        History history = new History();
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser, history);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
         Menu menu = new Menu();
 
         Dispatcher dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);

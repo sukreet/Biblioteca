@@ -13,7 +13,7 @@ public class User {
         this.libraryID = libraryID;
         this.phoneNo = phoneNo;
         this.password = password;
-        this.emaidID=emaidID;
+        this.emaidID = emaidID;
         this.isLibraian = isLibraian;
     }
 

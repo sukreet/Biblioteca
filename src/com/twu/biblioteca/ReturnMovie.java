@@ -9,13 +9,15 @@ public class ReturnMovie implements MenuOperations {
     private String successfulReturnMsg;
     private String name;
     private User authorisedUser;
+    private History history;
 
-    public ReturnMovie(ConsoleIO consoleIO, MovieList movieList, User authorisedUser) {
+    public ReturnMovie(ConsoleIO consoleIO, MovieList movieList, User authorisedUser, History history) {
         this.consoleIO = consoleIO;
         this.movieList = movieList;
         unSuccessfulReturnMsg = "That is not a valid movie to return\n";
         successfulReturnMsg = "Thank you for returning the movie.\n";
         this.authorisedUser = authorisedUser;
+        this.history = history;
     }
 
     @Override

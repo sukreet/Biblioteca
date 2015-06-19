@@ -34,6 +34,6 @@ public class LoginTest {
 
         User authorisedUser = login.authoriseUser("111-1111", "password");
         User expectedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        assertThat(authorisedUser,is(expectedUser));
+        assertThat(authorisedUser, is(expectedUser));
     }
 }

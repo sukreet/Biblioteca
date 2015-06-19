@@ -10,13 +10,16 @@ public class CheckOutBook implements MenuOperations {
     private String name;
     private ConsoleIO consoleIO;
     private User authorisedUser;
+    private History history;
 
-    public CheckOutBook(ConsoleIO consoleIO, BookList bookList, User authorisedUser) {
+
+    public CheckOutBook(ConsoleIO consoleIO, BookList bookList, User authorisedUser, History history) {
         this.consoleIO = consoleIO;
         successFullCheckOutMsg = "Thank you! Enjoy the book.\n";
         unSuccessFullCheckOutMsg = "That book is not available.\n";
         this.bookList = bookList;
         this.authorisedUser = authorisedUser;
+        this.history = history;
     }
 
     @Override

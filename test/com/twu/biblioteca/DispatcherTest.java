@@ -30,11 +30,12 @@ public class DispatcherTest {
         movies.add(new Movie("Movie1", "Director1", 1999, "7/10"));
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
+        History history = new History();
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser, history);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
         Menu menu = new Menu();
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
@@ -85,12 +86,12 @@ public class DispatcherTest {
         movies.add(new Movie("Movie2", "Director2", 1998, "unrated"));
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
-
+        History history = new History();
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser, history);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
 
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
@@ -116,10 +117,11 @@ public class DispatcherTest {
         MovieList movieList = new MovieList(movies);
         when(consoleIO.read()).thenReturn("book1");
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
+        History history = new History();
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser, history);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
 
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
@@ -143,8 +145,9 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = mock(CheckOutBook.class);
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
+        History history = new History();
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
         ReturnMovie returnMovie = mock(ReturnMovie.class);
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
@@ -167,8 +170,9 @@ public class DispatcherTest {
         CheckOutBook checkOutBook = mock(CheckOutBook.class);
         ReturnBook returnBook = mock(ReturnBook.class);
         Menu menu = new Menu();
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList,authorisedUser);
-        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
+        History history = new History();
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
+        ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
         dispatcher = new Dispatcher(bookList, new Quit(), checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
 
         String actualOutput = dispatcher.computeMenuOption(7);

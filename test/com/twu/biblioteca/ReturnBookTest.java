@@ -24,7 +24,8 @@ public class ReturnBookTest {
         list.add(new Book("Learning C", "John", 2000));
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        ReturnBook returnBook = new ReturnBook(consoleIO, new BookList(list), authorisedUser);
+        History history = new History();
+        ReturnBook returnBook = new ReturnBook(consoleIO, new BookList(list), authorisedUser, history);
         String expected = returnBook.action();
 
         assertThat(expected, is("That is not a valid book to return\n"));
@@ -41,8 +42,9 @@ public class ReturnBookTest {
         BookList bookList = new BookList(list);
         ConsoleIO consoleIO = new ConsoleIO(bufferedReader);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser);
-        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
+        History history = new History();
+        CheckOutBook checkOutBook = new CheckOutBook(consoleIO, new BookList(list), authorisedUser, history);
+        ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
 
         checkOutBook.action();
         String expected = returnBook.action();

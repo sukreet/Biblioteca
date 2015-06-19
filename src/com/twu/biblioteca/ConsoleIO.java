@@ -14,7 +14,7 @@ public class ConsoleIO {
 
     public int readInt() throws IOException {
         String st = bufferedReader.readLine();
-        if (st.length() == 1 && isDigit(st.charAt(0)) )
+        if (st.length() == 1 && isDigit(st.charAt(0)))
             return Integer.parseInt(st);
         return 0;
     }

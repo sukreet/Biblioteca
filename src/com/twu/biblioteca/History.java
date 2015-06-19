@@ -27,7 +27,7 @@ public class History {
 
     public void removeRecord(String itemName, String itemType) {
         for (Record record : records) {
-            if (record.match(itemName,itemType))
+            if (record.match(itemName, itemType))
                 records.remove(record);
         }
 

@@ -29,7 +29,8 @@ public class CheckOutMoviesTest {
         when(consoleIO.read()).thenReturn("Good");
         movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        History history = new History();
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
 
         String expected = checkOutMovies.action();
 
@@ -43,7 +44,8 @@ public class CheckOutMoviesTest {
         when(consoleIO.read()).thenReturn("Movie1");
         movieList = new MovieList(movies);
         User authorisedUser = new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false);
-        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
+        History history = new History();
+        CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
 
         String expected = checkOutMovies.action();
 

@@ -23,6 +23,7 @@ public class EntryPoint {
         seedDataForMovies = readMovieList.readListOfMovies();
         MovieList movieList = new MovieList(seedDataForMovies);
         Menu menu = new Menu();
+        History history = new History();
         User authorisedUser;
         ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("Name", "111-1111", "930129876", "asd@gmail.com", "password", false));
@@ -37,10 +38,10 @@ public class EntryPoint {
             String password = consoleIO.read();
             authorisedUser = login.authoriseUser(libraryID, password);
             if (authorisedUser != null) {
-                CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser);
-                ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser);
-                CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser);
-                ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser);
+                CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser, history);
+                ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
+                CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);
+                ReturnMovie returnMovie = new ReturnMovie(consoleIO, movieList, authorisedUser, history);
                 Dispatcher dispatcher = new Dispatcher(bookList, quit, checkOutBook, returnBook, movieList, checkOutMovies, returnMovie, menu);
                 App app = new App(dispatcher, menu, consoleIO);
                 app.start();

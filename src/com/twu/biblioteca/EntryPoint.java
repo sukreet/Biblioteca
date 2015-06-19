@@ -27,6 +27,7 @@ public class EntryPoint {
         User authorisedUser;
         ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("sukreet", "111-1111", "930129876", "src@gmail.com", "password", false));
+        userList.add(new User("Bhawesh", "111-1112", "930109876", "bk@gmail.com", "password", false));
         userList.add(new User("librarian", "000-0000", "930127876", "as1@gmail.com", "password", true));
 
         while (true) {
@@ -37,9 +38,13 @@ public class EntryPoint {
                 System.exit(0);
             String password = consoleIO.read();
             authorisedUser = login.authoriseUser(libraryID, password);
+            if (authorisedUser == null) {
+                consoleIO.display("Invalid Credentials\n");
+                continue;
+            }
             if (authorisedUser.userIsLibrarian())
                 consoleIO.display(history.show());
-            if (authorisedUser != null) {
+            else {
                 CheckOutBook checkOutBook = new CheckOutBook(consoleIO, bookList, authorisedUser, history);
                 ReturnBook returnBook = new ReturnBook(consoleIO, bookList, authorisedUser, history);
                 CheckOutMovies checkOutMovies = new CheckOutMovies(consoleIO, movieList, authorisedUser, history);

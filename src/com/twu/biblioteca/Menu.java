@@ -14,6 +14,7 @@ public class Menu {
         menuList.add("5 : List Of Movies");
         menuList.add("6 : Check out Movie");
         menuList.add("7 : Return Movie");
+        menuList.add("8 : Show User Details");
     }
 
     public int returnMenuSize() {

@@ -68,7 +68,8 @@ public class AppTest {
                 "4 : Return Book" + System.lineSeparator() +
                 "5 : List Of Movies" + System.lineSeparator() +
                 "6 : Check out Movie" + System.lineSeparator() +
-                "7 : Return Movie" + System.lineSeparator();
+                "7 : Return Movie" + System.lineSeparator() +
+                "8 : Show User Details" + System.lineSeparator();
 
 
         assertEquals(expectedMenuFormat, outputStream.toString());

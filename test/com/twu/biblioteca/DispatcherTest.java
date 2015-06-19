@@ -55,7 +55,7 @@ public class DispatcherTest {
     @Test
     public void shouldDisplayInvalidMenuOptionWhenIncorrectMenuOptionIsPassed() {
 
-        String actualOutput = dispatcher.computeMenuOption(8);
+        String actualOutput = dispatcher.computeMenuOption(-1);
 
         assertThat(actualOutput, is("Select a valid option!"));
     }

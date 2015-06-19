@@ -28,6 +28,7 @@ public class ReturnMovie implements MenuOperations {
             e.printStackTrace();
         }
         if (movieList.returnMovie(name)) {
+            history.removeRecord(name, "Movie");
             return successfulReturnMsg;
         }
         return unSuccessfulReturnMsg;
